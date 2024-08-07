@@ -263,7 +263,7 @@ def plotwhatifladder(whatifscore, variable):
     table = ax.table(cellText = data, colLabels = ('Team', variable),  
     cellLoc ='center',  
     loc ='center')
-    plt.show(
+    plt.show()
 
 def rundata(location):
     team='Adelaide Crows' # Just a placeholder- is overwritten later. 
