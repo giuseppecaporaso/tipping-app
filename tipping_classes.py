@@ -319,12 +319,12 @@ def plotbar(t, teams, teamshort, tipstername, location, variable, detailed):
     listcorrect, listwrong, listcorrect2, listwrong2, listtotal, totalcorrectpertipster, totalwrongpertipster, totalpertipster = [[] for _ in range(8)]
     # Some check to see if its a team or tipster
     barwidth = 0.25
-    plt.figure(figsize=(16,9))
+    plt.figure(figsize=(9,6))
     if variable in tipstername:
         x_ax = np.arange(len(teams))
-        plt.title(variable+" Across All Teams\n Location - "+location, fontsize=20)
-        plt.xlabel('Teams', fontsize=16)
-        plt.ylabel('Score', fontsize=16)
+        plt.title(variable+" Across All Teams\n Location - "+location, fontsize=18)
+        plt.xlabel('Teams', fontsize=12)
+        plt.ylabel('Score', fontsize=12)
         for i in range(len(teams)):
             if detailed:
                 listcorrect.append(list(t[t['Name']==variable]['Score'])[0][i])#, barwidth, color='blue', label="Tipped and team won", align='center', edgecolor='black')
@@ -338,9 +338,9 @@ def plotbar(t, teams, teamshort, tipstername, location, variable, detailed):
     elif variable in teams:
         teamidx = teams.index(variable)
         x_ax = np.arange(len(tipstername))
-        plt.title(variable+" Across All Tipsters\n Location - "+location, fontsize=20)
-        plt.xlabel('Tipsters', fontsize=16)
-        plt.ylabel('Score', fontsize=16)
+        plt.title(variable+" Across All Tipsters\n Location - "+location, fontsize=18)
+        plt.xlabel('Tipsters', fontsize=12)
+        plt.ylabel('Score', fontsize=12)
         for name in tipstername:
             if detailed:
                 listcorrect.append(list(t[t['Name']==name]['Score'])[0][teamidx])#, barwidth, color='blue', label="Tipped and team won", align='center', edgecolor='black')
@@ -383,18 +383,19 @@ def plotbar(t, teams, teamshort, tipstername, location, variable, detailed):
     if variable in tipstername:
         if detailed: plt.hlines(0, xmin=0, xmax=len(teamshort)-1, color='black', linewidth=1)
         teamshort = rearrange(teamshort, totalidx)
-        plt.xticks(x_ax, teamshort, rotation=90)
-        plt.xlabel('Teams', fontsize=16)
+        plt.xticks(x_ax, teamshort, rotation=90, fontsize=8)
+        # plt.xlabel('Teams', fontsize=12)
     
     elif variable in teams:
         if detailed: plt.hlines(0, xmin=0, xmax=len(tipstername)-1, color='black', linewidth=1)
         tipstername = rearrange(tipstername, totalidx)
-        plt.xticks(x_ax, tipstername, rotation=90)
-        plt.ylabel('Score', fontsize=16)
+        plt.xticks(x_ax, tipstername, rotation=90, fontsize=8)
+        # plt.ylabel('Score', fontsize=12)
 
     plt.locator_params(axis='y', integer=True, tight=True)
     plt.grid(axis='y', linewidth=0.5)
-    plt.legend(loc=(1.04, 0.5))
+    plt.legend(loc='center left', bbox_to_anchor=(1.0, 0.5), fontsize=8)
+    plt.tight_layout()
     plt.show() 
 
 class MainWindow(QMainWindow):
@@ -411,6 +412,7 @@ class MainWindow(QMainWindow):
         # create a checkbox, button
         self.checkbox = QCheckBox('Detail', self)
         self.checkbox.move(125, 180)
+        self.checkbox.setChecked(False)
         
         # Execute Button to run bar plots
         self.buttonrun = QPushButton('Run!', self)
@@ -475,6 +477,7 @@ class MainWindow(QMainWindow):
         self.radiobutton2.resize(150, 25)
         self.radiobutton1.toggled.connect(self.radiobutton1_pushed)
         self.radiobutton2.toggled.connect(self.radiobutton2_pushed)
+        self.radiobutton1.setChecked(True)
 
         # Label for tipster input box.
         self.nameLabel = QLabel(self)
@@ -495,7 +498,7 @@ class MainWindow(QMainWindow):
 
         #################### ACTION COMMANDS ###########################
         self.buttonrun.clicked.connect(self.button_pushed)        
-        self.checkbox.setCheckState(Qt.CheckState.Checked)
+        # self.checkbox.setCheckState(Qt.CheckState.Checked)
         self.checkbox.stateChanged.connect(self.state_changed)
 
         layout.addWidget(self.checkbox, Qt.AlignmentFlag.AlignCenter)

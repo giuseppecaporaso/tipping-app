@@ -46,10 +46,10 @@ def generateladder(tips, fixture):
         correct
     except NameError:
         loadflag = True
-        print("Preparing data..")
+        #print("Preparing data..")
     else:
         loadflag = False
-        print("Data appears loaded. To manually retry, set reload to true.")
+        #print("Data appears loaded. To manually retry, set reload to true.")
         
     if reload:
         del homeawayresult, totalperteamhome, totalperteamaway, correct
@@ -266,22 +266,22 @@ def margin_per_round(tipster, no_users=int(tips.nunique()["NAME"])):
     cm_1 = plt.get_cmap('gist_ncar_r')
     # Does the username exist? 
     if not(bool(tipster)) or '' in tipster:
-        plt.figure(figsize=(16, 18))
+        plt.figure(figsize=(8, 8))
         margin_per_user, margin_profile = calc_margin(tips, rounds, no_users)
         for user in range(no_users):    
-            plt.plot(rounds, margin_per_user[user], label=margin_profile[-1]['NAME'].iloc[user], linewidth=5, color=cm_1(user*10+15))   
+            plt.plot(rounds, margin_per_user[user], label=margin_profile[-1]['NAME'].iloc[user], linewidth=4, color=cm_1(user*10+15))   
             
     else:       
         margin_per_user, margin_profile = calc_margin(tips, rounds, no_users)
         df = margin_profile[-1]
         save_tipster = list_input(tipster, df, no_users)
-        plt.figure(figsize=(16, 18))
+        plt.figure(figsize=(8, 8))
         for user in range(0, no_users):
             # This converts the negative number (to access the most recent round) into an index where the name is positioned in terms
             # of rank in the most recent round.
             if (user-no_users) in save_tipster:
                 # Again, -25 brings us to the most recent round which is ordered.
-                plt.plot(rounds, margin_per_user[user], label=margin_profile[-1]['NAME'].iloc[user], linewidth=5, color=cm_1(user*10+15))   
+                plt.plot(rounds, margin_per_user[user], label=margin_profile[-1]['NAME'].iloc[user], linewidth=4, color=cm_1(user*10+15))   
                 
             else:
                 # Everyone else appears grey
@@ -295,23 +295,23 @@ def position_per_round(tipster, no_users=int(tips.nunique()["NAME"])):
     rank_profile = []
     # Does the username exist? 
     if not(bool(tipster)) or '' in tipster:
-        plt.figure(figsize=(16, 18))
+        plt.figure(figsize=(8, 8))
         # Go through each tipster
         for user in range(0, no_users):
             # This line extracts a tipsters score for each round, along with an index indicating their final position after each round. Very handy!
             rank_profile.append(tips[tips['NAME'] == tips.iloc[user-no_users][1]]['RANK'])
-            plt.plot(rounds, rank_profile[user], label=tips.iloc[user-no_users][1], linewidth=5, color=cm_1(user*10+15))                
+            plt.plot(rounds, rank_profile[user], label=tips.iloc[user-no_users][1], linewidth=4, color=cm_1(user*10+15))                
 
     else:
         save_tipster = list_input(tipster, tips, no_users)
-        plt.figure(figsize=(16, 18))
+        plt.figure(figsize=(8, 8))
         for user in range(0, no_users):
             rank_profile.append(tips[tips['NAME'] == tips.iloc[user-no_users][1]]['RANK'])
             # This converts the negative number (to access the most recent round) into an index where the name is positioned in terms
             # of rank in the most recent round.
             if (user-no_users) in save_tipster:
                 # Again, -25 brings us to the most recent round which is ordered.
-                plt.plot(rounds, rank_profile[user], label=tips.iloc[user-no_users][1], linewidth=5, color=cm_1(user*10+15))
+                plt.plot(rounds, rank_profile[user], label=tips.iloc[user-no_users][1], linewidth=4, color=cm_1(user*10+15))
                 
             else:
                 # Everyone else appears grey

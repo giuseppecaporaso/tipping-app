@@ -65,10 +65,10 @@ def plot_settings(no_users, rounds, margin):
     plt.ylabel('Position', fontsize=16)
     # Need to adjust title aswell
     if margin:
-        plt.title('AURIZN Tipping 2024 \nMargin per round', fontsize=20)
+        plt.title('AURIZN Tipping 2024 \nMargin per round', fontsize=18)
     else:
-        plt.title('AURIZN Tipping 2024 \nPosition per round', fontsize=20)
-    plt.legend(title='Current Ladder', loc=(1.04, 0.5)) 
+        plt.title('AURIZN Tipping 2024 \nPosition per round', fontsize=18)
+    plt.legend(title='Current Ladder', loc='center left', bbox_to_anchor=(1.0, 0.5), prop={'size': 6}, fontsize=8) 
     plt.show()  
 
 def bar_settings(tick, xlabel, x_ax):
@@ -78,7 +78,8 @@ def bar_settings(tick, xlabel, x_ax):
     plt.grid(axis='y', linewidth=0.25)
     plt.xlabel(xlabel, fontsize=16)
     plt.ylabel('Score', fontsize=16)
-    plt.legend(loc=(1.04, 0.5))
+    plt.legend(loc=(1.0, 0.5))
+    plt.tight_layout()
     plt.show()
     
 def checktip(fixture, name, index):
