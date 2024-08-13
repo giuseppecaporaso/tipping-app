@@ -275,7 +275,7 @@ def margin_per_round(tipster, no_users=int(tips.nunique()["NAME"])):
         margin_per_user, margin_profile = calc_margin(tips, rounds, no_users)
         df = margin_profile[-1]
         save_tipster = list_input(tipster, df, no_users)
-        plt.figure(figsize=(8, 8))
+        plt.figure(figsize=(12, 8))
         for user in range(0, no_users):
             # This converts the negative number (to access the most recent round) into an index where the name is positioned in terms
             # of rank in the most recent round.
@@ -304,7 +304,7 @@ def position_per_round(tipster, no_users=int(tips.nunique()["NAME"])):
 
     else:
         save_tipster = list_input(tipster, tips, no_users)
-        plt.figure(figsize=(8, 8))
+        plt.figure(figsize=(12, 8))
         for user in range(0, no_users):
             rank_profile.append(tips[tips['NAME'] == tips.iloc[user-no_users][1]]['RANK'])
             # This converts the negative number (to access the most recent round) into an index where the name is positioned in terms

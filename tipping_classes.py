@@ -272,7 +272,6 @@ def rundata(location):
     team='Adelaide Crows' # Just a placeholder- is overwritten later. 
     # Utilise the class methods. 
     
-    print(location)
     yscore, yattempts, yteamwinsdraws, ytippedbutdidntwin, ydidnttipdidntwin, ydidnttipbutwon = [[] for _ in range(6)]
     for name in tipstername:
         tipsters[name].get_team_score(team, location)
@@ -315,6 +314,8 @@ def rundata(location):
     t['ytippedbutdidntwin'] = ytippedbutdidntwin
     t['ydidnttipbutwon'] = ydidnttipbutwon
     t['ydidnttipdidntwin'] = ydidnttipdidntwin
+
+    
         
     return(t, y)
 
@@ -433,6 +434,8 @@ class MyTableWidget(QWidget):
         self.tab4 = QWidget()
         self.tabs.resize(400,400)
         
+        self.chosentipsters = []
+        
         # Add tabs
         self.tabs.addTab(self.tab1,"Compare Tipsters/Teams")
         self.tabs.addTab(self.tab2,"Rank by Position")
@@ -487,7 +490,7 @@ class MyTableWidget(QWidget):
         self.loccombobox.move(105, 140)
         self.loccombobox.resize(150, 25)
         
-        self.loccombobox.currentTextChanged.connect(self.locselected)
+        # self.loccombobox.currentTextChanged.connect(self.locselected)
 
         # Label for tipster input box.
         self.nameLabel = QLabel(self)
@@ -510,17 +513,113 @@ class MyTableWidget(QWidget):
         # Tab 2 - Pos by rank.
         
         self.label = QLabel("To see specific tipster margin worms, tick their respective box.\nNo ticked boxes will highlight everyone.")
-        self.listCheckBox = tipstername
-        self.myLabel = ['','','','','','','','','','','','','','','','','','','','','','','','']
-
-        for i, v in enumerate(self.listCheckBox):
-            self.listCheckBox[i] = QCheckBox(v)
-            self.myLabel[i] = QLabel()
-            self.listCheckBox[i].stateChanged.connect(self.tipsterSelected)
+        # self.listCheckBox = tipstername
+        # self.myLabel = ['','','','','','','','','','','','','','','','','','','','','','','','']
+        
+        
+        self.listCheckBox1 = QCheckBox(tipstername[0], self)
+        self.listCheckBox1.setChecked(False)
+        self.listCheckBox1.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox2 = QCheckBox(tipstername[1], self)
+        self.listCheckBox2.setChecked(False)
+        self.listCheckBox2.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox3 = QCheckBox(tipstername[2], self)
+        self.listCheckBox3.setChecked(False)
+        self.listCheckBox3.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox4 = QCheckBox(tipstername[3], self)
+        self.listCheckBox4.setChecked(False)
+        self.listCheckBox4.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox5 = QCheckBox(tipstername[4], self)
+        self.listCheckBox5.setChecked(False)
+        self.listCheckBox5.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox6 = QCheckBox(tipstername[5], self)
+        self.listCheckBox6.setChecked(False)
+        self.listCheckBox6.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox7 = QCheckBox(tipstername[6], self)
+        self.listCheckBox7.setChecked(False)
+        self.listCheckBox7.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox8 = QCheckBox(tipstername[7], self)
+        self.listCheckBox8.setChecked(False)
+        self.listCheckBox8.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox9 = QCheckBox(tipstername[8], self)
+        self.listCheckBox9.setChecked(False)
+        self.listCheckBox9.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox10 = QCheckBox(tipstername[9], self)
+        self.listCheckBox10.setChecked(False)
+        self.listCheckBox10.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox11 = QCheckBox(tipstername[10], self)
+        self.listCheckBox11.setChecked(False)
+        self.listCheckBox11.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox12 = QCheckBox(tipstername[11], self)
+        self.listCheckBox12.setChecked(False)
+        self.listCheckBox12.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox13 = QCheckBox(tipstername[12], self)
+        self.listCheckBox13.setChecked(False)
+        self.listCheckBox13.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox14 = QCheckBox(tipstername[13], self)
+        self.listCheckBox14.setChecked(False)
+        self.listCheckBox14.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox15 = QCheckBox(tipstername[14], self)
+        self.listCheckBox15.setChecked(False)
+        self.listCheckBox15.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox16 = QCheckBox(tipstername[15], self)
+        self.listCheckBox16.setChecked(False)
+        self.listCheckBox16.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox17 = QCheckBox(tipstername[16], self)
+        self.listCheckBox17.setChecked(False)
+        self.listCheckBox17.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox18 = QCheckBox(tipstername[17], self)
+        self.listCheckBox18.setChecked(False)
+        self.listCheckBox18.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox19 = QCheckBox(tipstername[18], self)
+        self.listCheckBox19.setChecked(False)
+        self.listCheckBox19.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox20 = QCheckBox(tipstername[19], self)
+        self.listCheckBox20.setChecked(False)
+        self.listCheckBox20.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox21 = QCheckBox(tipstername[20], self)
+        self.listCheckBox21.setChecked(False)
+        self.listCheckBox21.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox22 = QCheckBox(tipstername[21], self)
+        self.listCheckBox22.setChecked(False)
+        self.listCheckBox22.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox23 = QCheckBox(tipstername[22], self)
+        self.listCheckBox23.setChecked(False)
+        self.listCheckBox23.stateChanged.connect(self.tipsterSelected)
+        
+        self.listCheckBox24 = QCheckBox(tipstername[23], self)
+        self.listCheckBox24.setChecked(False)
+        self.listCheckBox24.stateChanged.connect(self.tipsterSelected)
     
         self.launchposbyrank = QPushButton('Go!', self)
         self.launchposbyrank.move(5, 180)
         self.launchposbyrank.clicked.connect(self.ladder)
+        
+        self.launchposbymarg = QPushButton('Go!', self)
+        self.launchposbymarg.move(5, 180)
+        self.launchposbymarg.clicked.connect(self.ladder)
         # #################### ACTION COMMANDS ###########################
         self.buttonrun.clicked.connect(self.button_pushed)        
         self.checkbox.stateChanged.connect(self.state_changed)
@@ -539,18 +638,80 @@ class MyTableWidget(QWidget):
         self.tab1.layout.addWidget(self.checkbox)#, Qt.AlignmentFlag.AlignCenter)
         self.tab1.layout.addWidget(self.buttonrun)#, Qt.AlignmentFlag.AlignLeft)
         self.tab1.setLayout(self.tab1.layout)
-
+     
         # Tab 2
         
         self.tab2.layout = QVBoxLayout(self)
         self.tab2.layout.addWidget(self.label)
+        self.tab2.layout.addWidget(self.listCheckBox1)
+        self.tab2.layout.addWidget(self.listCheckBox2)
+        self.tab2.layout.addWidget(self.listCheckBox3)
+        self.tab2.layout.addWidget(self.listCheckBox4)
+        self.tab2.layout.addWidget(self.listCheckBox5)
+        self.tab2.layout.addWidget(self.listCheckBox6)
+        self.tab2.layout.addWidget(self.listCheckBox7)
+        self.tab2.layout.addWidget(self.listCheckBox8)
+        self.tab2.layout.addWidget(self.listCheckBox9)
+        self.tab2.layout.addWidget(self.listCheckBox10)
+        self.tab2.layout.addWidget(self.listCheckBox11)
+        self.tab2.layout.addWidget(self.listCheckBox12)
+        self.tab2.layout.addWidget(self.listCheckBox13)
+        self.tab2.layout.addWidget(self.listCheckBox14)
+        self.tab2.layout.addWidget(self.listCheckBox15)
+        self.tab2.layout.addWidget(self.listCheckBox16)
+        self.tab2.layout.addWidget(self.listCheckBox17)
+        self.tab2.layout.addWidget(self.listCheckBox18)
+        self.tab2.layout.addWidget(self.listCheckBox19)
+        self.tab2.layout.addWidget(self.listCheckBox20)
+        self.tab2.layout.addWidget(self.listCheckBox21)
+        self.tab2.layout.addWidget(self.listCheckBox22)
+        self.tab2.layout.addWidget(self.listCheckBox23)
+        self.tab2.layout.addWidget(self.listCheckBox24)
         self.tab2.layout.addWidget(self.launchposbyrank)#, Qt.AlignmentFlag.AlignRight)
-        for i, v in enumerate(self.listCheckBox):
-            self.tab2.layout.addWidget(self.listCheckBox[i])#, i)#, Qt.AlignmentFlag.AlignLeft)
-            self.tab2.layout.addWidget(self.myLabel[i])#, i)#, Qt.AlignmentFlag.AlignLeft)
-            self.listCheckBox[i].stateChanged.connect(self.tipsterSelected)
+        
+        
+        # print(self.listCheckBox)
+        # for i, v in enumerate(self.listCheckBox):
+        #     # print(self.listCheckBox[i])
+        #     self.listCheckBox[i] = QCheckBox(v)
+        #     # print(QCheckBox(v))
+        #     self.myLabel[i] = QLabel()
+        #     self.tab2.layout.addWidget(self.listCheckBox[i], i)#, Qt.AlignmentFlag.AlignLeft)
+        #     self.tab2.layout.addWidget(self.myLabel[i], i)#, Qt.AlignmentFlag.AlignLeft)
+        #     self.listCheckBox[i].stateChanged.connect(self.tipsterSelected)
         self.tab2.setLayout(self.tab2.layout)
+        self.layout.addWidget(self.tabs)
+        self.setLayout(self.layout)
+        
+        self.tab3.layout = QVBoxLayout(self)
+        self.tab3.layout.addWidget(self.label)
+        self.tab3.layout.addWidget(self.listCheckBox1)
+        self.tab3.layout.addWidget(self.listCheckBox2)
+        self.tab3.layout.addWidget(self.listCheckBox3)
+        self.tab3.layout.addWidget(self.listCheckBox4)
+        self.tab3.layout.addWidget(self.listCheckBox5)
+        self.tab3.layout.addWidget(self.listCheckBox6)
+        self.tab3.layout.addWidget(self.listCheckBox7)
+        self.tab3.layout.addWidget(self.listCheckBox8)
+        self.tab3.layout.addWidget(self.listCheckBox9)
+        self.tab3.layout.addWidget(self.listCheckBox10)
+        self.tab3.layout.addWidget(self.listCheckBox11)
+        self.tab3.layout.addWidget(self.listCheckBox12)
+        self.tab3.layout.addWidget(self.listCheckBox13)
+        self.tab3.layout.addWidget(self.listCheckBox14)
+        self.tab3.layout.addWidget(self.listCheckBox15)
+        self.tab3.layout.addWidget(self.listCheckBox16)
+        self.tab3.layout.addWidget(self.listCheckBox17)
+        self.tab3.layout.addWidget(self.listCheckBox18)
+        self.tab3.layout.addWidget(self.listCheckBox19)
+        self.tab3.layout.addWidget(self.listCheckBox20)
+        self.tab3.layout.addWidget(self.listCheckBox21)
+        self.tab3.layout.addWidget(self.listCheckBox22)
+        self.tab3.layout.addWidget(self.listCheckBox23)
+        self.tab3.layout.addWidget(self.listCheckBox24)
+        self.tab3.layout.addWidget(self.launchposbymarg)#, Qt.AlignmentFlag.AlignRight)
 
+        self.tab3.setLayout(self.tab3.layout)
         self.layout.addWidget(self.tabs)
         self.setLayout(self.layout)
         
@@ -558,16 +719,72 @@ class MyTableWidget(QWidget):
         # self.show()
         
     def tipsterSelected(self):
-        self.chosentipsters = []
-        for i in range(len(self.listCheckBox)):
-            if (self.listCheckBox[i].isChecked()):
-                self.chosentipsters.append(self.listCheckBox[i].text())
+        # self.chosentipsters = []
+        # for i in range(len(self.listCheckBox[i])):
+            # if (self.listCheckBox[i].isChecked()):
+            #     self.chosentipsters.append(self.listCheckBox[i].text())
+        if (self.listCheckBox1.isChecked()):
+            self.chosentipsters.append(self.listCheckBox1.text())
+        if (self.listCheckBox2.isChecked()):
+            self.chosentipsters.append(self.listCheckBox2.text())
+        if (self.listCheckBox3.isChecked()):
+            self.chosentipsters.append(self.listCheckBox3.text())
+        if (self.listCheckBox4.isChecked()):
+            self.chosentipsters.append(self.listCheckBox4.text())
+        if (self.listCheckBox5.isChecked()):
+            self.chosentipsters.append(self.listCheckBox5.text())
+        if (self.listCheckBox6.isChecked()):
+            self.chosentipsters.append(self.listCheckBox6.text())
+        if (self.listCheckBox7.isChecked()):
+            self.chosentipsters.append(self.listCheckBox7.text())
+        if (self.listCheckBox8.isChecked()):
+            self.chosentipsters.append(self.listCheckBox8.text())
+        if (self.listCheckBox9.isChecked()):
+            self.chosentipsters.append(self.listCheckBox9.text())
+        if (self.listCheckBox10.isChecked()):
+            self.chosentipsters.append(self.listCheckBox10.text())
+        if (self.listCheckBox11.isChecked()):
+            self.chosentipsters.append(self.listCheckBox11.text())
+        if (self.listCheckBox12.isChecked()):
+            self.chosentipsters.append(self.listCheckBox12.text())
+        if (self.listCheckBox13.isChecked()):
+            self.chosentipsters.append(self.listCheckBox13.text())
+        if (self.listCheckBox14.isChecked()):
+            self.chosentipsters.append(self.listCheckBox14.text())
+        if (self.listCheckBox15.isChecked()):
+            self.chosentipsters.append(self.listCheckBox15.text())
+        if (self.listCheckBox16.isChecked()):
+            self.chosentipsters.append(self.listCheckBox16.text())
+        if (self.listCheckBox17.isChecked()):
+            self.chosentipsters.append(self.listCheckBox17.text())
+        if (self.listCheckBox18.isChecked()):
+            self.chosentipsters.append(self.listCheckBox18.text())
+        if (self.listCheckBox19.isChecked()):
+            self.chosentipsters.append(self.listCheckBox19.text())
+        if (self.listCheckBox20.isChecked()):
+            self.chosentipsters.append(self.listCheckBox20.text())
+        if (self.listCheckBox21.isChecked()):
+            self.chosentipsters.append(self.listCheckBox21.text())
+        if (self.listCheckBox22.isChecked()):
+            self.chosentipsters.append(self.listCheckBox22.text())
+        if (self.listCheckBox23.isChecked()):
+            self.chosentipsters.append(self.listCheckBox23.text())
+        if (self.listCheckBox24.isChecked()):
+            self.chosentipsters.append(self.listCheckBox24.text())
                 
         return(self.chosentipsters)
 
     def ladder(self):
+        # if not(hasattr(MyTableWidget, self.chosentipsters)):
+        #     self.chosentipsters = []
         generateladder(tips, fixture)
         position_per_round(self.chosentipsters)
+        
+    def margin(self):
+        # if not(hasattr(MyTableWidget, self.chosentipsters)):
+        #     self.chosentipsters = []
+        generateladder(tips, fixture)
+        margin_per_round(self.chosentipsters)
         
     def WhatIfLadder(self):
         plotwhatifladder(whatifscore, self.tipstercombobox.currentText())
@@ -600,7 +817,7 @@ class MyTableWidget(QWidget):
         print(self.loccombobox.currentText())
 
     def button_pushed(self):
-        print(str(self.loccombobox.currentText()))
+        # print(str(self.loccombobox.currentText()))
         t, y = rundata(str(self.loccombobox.currentText()))
         if self.radiobutton2.isChecked():
             plotbar(t, teams, teamshort, tipstername, str(self.loccombobox.currentText()), str(self.tipstercombobox.currentText()), self.checkbox.isChecked())
