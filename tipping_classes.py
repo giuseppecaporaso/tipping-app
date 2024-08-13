@@ -17,7 +17,7 @@ import seaborn as sns
 import itertools
 # from tkinter import *
 from PyQt6.QtCore import QSize, Qt
-from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QCheckBox, QGridLayout, QWidget, QVBoxLayout, QLineEdit, QLabel, QComboBox, QRadioButton, QButtonGroup
+from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QCheckBox, QGridLayout, QWidget, QVBoxLayout, QLineEdit, QLabel, QComboBox, QRadioButton, QButtonGroup, QTabWidget
 sns.set()
 
 tips, fixture = loaddf('C:\\Users\\giuseppe.caporaso\\Downloads\\tipping_files\\')
@@ -25,12 +25,12 @@ tipstername = fixture.columns[7:].tolist()
 teamshort = ['ADL','BRIS','CARL','COL','ESS','FRE','GWS','GEEL','GCS','HAW','MEL','NTH','PORT','RICH','STK','SYD','WCE','WB']
 teams = sorted(list(fixture['Home Team'].unique()))
 
+
+
 whatifscore = pd.DataFrame()
 whatifscore['Team'] = teams
 for name in tipstername:
     whatifscore[name] = 0
-
-
 
 class Tipster:
     def __init__(self, name, df):
@@ -255,12 +255,15 @@ for name in tipstername:
     tipsters[name] = Tipster(name, df)
     
 def plotwhatifladder(whatifscore, variable):
+    variable = 'Adam Slimming'
+    # print("variable: ", variable)
     plt.figure(figsize=(9,9))
-    whatiftipster = whatifscore[['Team', variable]].sort_values(by=variable, ascending=False)
+    whatiftipster = whatifscore[['Team', variable]] #.sort_values(by=str(variable), ascending=False)
+    df4 = whatiftipster.sort_values(by=str(variable), ascending=False)
     fig, ax = plt.subplots() 
     ax.set_axis_off() 
-    data = np.array(whatifscore[['Team', variable]])
-    table = ax.table(cellText = data, colLabels = ('Team', variable),  
+    data = np.array(whatiftipster[['Team', variable]])
+    table = ax.table(cellText = np.array(df4), colLabels = ('Team', variable),  
     cellLoc ='center',  
     loc ='center')
     plt.show()
@@ -268,6 +271,8 @@ def plotwhatifladder(whatifscore, variable):
 def rundata(location):
     team='Adelaide Crows' # Just a placeholder- is overwritten later. 
     # Utilise the class methods. 
+    
+    print(location)
     yscore, yattempts, yteamwinsdraws, ytippedbutdidntwin, ydidnttipdidntwin, ydidnttipbutwon = [[] for _ in range(6)]
     for name in tipstername:
         tipsters[name].get_team_score(team, location)
@@ -400,15 +405,53 @@ def plotbar(t, teams, teamshort, tipstername, location, variable, detailed):
 
 class MainWindow(QMainWindow):
     def __init__(self, *args, **kwargs):
-        super(MainWindow, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.w = None
         self.setWindowTitle('Tipping App')
         self.setGeometry(100, 100, 400, 400)
+        
+        self.table_widget = MyTableWidget(self)
+        self.setCentralWidget(self.table_widget)
+        
+        # show the window
+        self.show()
+        
+class MyTableWidget(QWidget):
+    def __init__(self, parent):
+        super(QWidget, self).__init__(parent)
+        self.layout = QVBoxLayout(self)
+    
+        # # create a grid layout
+        # layout = QVBoxLayout()
+        # self.setLayout(layout)
+    
+        # Initialize tab screen
+        self.tabs = QTabWidget()
+        self.tab1 = QWidget()
+        self.tab2 = QWidget()
+        self.tab3 = QWidget()
+        self.tab4 = QWidget()
+        self.tabs.resize(400,400)
+        
+        # Add tabs
+        self.tabs.addTab(self.tab1,"Compare Tipsters/Teams")
+        self.tabs.addTab(self.tab2,"Rank by Position")
+        self.tabs.addTab(self.tab3,"Rank by Margin")
+        self.tabs.addTab(self.tab4,"What If? Ladder")
 
-        # create a grid layout
-        layout = QVBoxLayout()
-        self.setLayout(layout)
+        # Tab 1 - Compare Tipsters/Teams
 
+        # Radio buttons to decide between choosing tipster or team
+        self.radiobutton1 = QRadioButton("Compare Tipsters", self)
+        self.radiobutton2 = QRadioButton("Compare Teams", self)
+        self.radiobutton1.move(10, 20)
+        self.radiobutton2.move(10, 45)
+        self.radiobutton1.resize(150, 25)
+        self.radiobutton2.resize(150, 25)
+        self.radiobutton1.toggled.connect(self.radiobutton1_pushed)
+        self.radiobutton2.toggled.connect(self.radiobutton2_pushed)
+        self.radiobutton1.setChecked(True)
+        
         # create a checkbox, button
         self.checkbox = QCheckBox('Detail', self)
         self.checkbox.move(125, 180)
@@ -417,27 +460,8 @@ class MainWindow(QMainWindow):
         # Execute Button to run bar plots
         self.buttonrun = QPushButton('Run!', self)
         self.buttonrun.move(5, 180)
-        
-        # Execute Button to generate ladder by pos/mar
-        self.buttonposbyrank = QPushButton('Generate \nRank Worm', self)
-        self.buttonposbyrank.move(5, 210)
-        self.buttonposbyrank.resize(100, 50)
-        self.buttonposbyrank.clicked.connect(self.ladderposbyrank)
-        
-        # Execute Button to generate ladder by pos/mar
-        self.buttonposbymarg = QPushButton('Generate \nMargin Worm', self)
-        self.buttonposbymarg.move(110, 210)
-        self.buttonposbymarg.resize(100, 50)
-        self.buttonposbymarg.clicked.connect(self.ladderposbymarg)
-        
-        # Execute Button to generate "What If" Ladder
-        self.buttonposbywhat = QPushButton('Generate \n"What If" Ladder', self)
-        self.buttonposbywhat.move(215, 210)
-        self.buttonposbywhat.resize(100, 50)
-        self.buttonposbywhat.clicked.connect(self.WhatIfLadder)
 
-
-        # Tipster ComboBox
+        # # Tipster ComboBox
         self.tipstercombobox = QComboBox(self)
         for name in tipstername:
             self.tipstercombobox.addItems([name])
@@ -455,7 +479,6 @@ class MainWindow(QMainWindow):
         
         self.teamcombobox.currentTextChanged.connect(self.teamselected)
 
-        
         # Location ComboBox
         self.loccombobox = QComboBox(self)
         self.loccombobox.addItems(['All','Home','Away'])
@@ -465,25 +488,13 @@ class MainWindow(QMainWindow):
         self.loccombobox.resize(150, 25)
         
         self.loccombobox.currentTextChanged.connect(self.locselected)
-        
-        # Radio buttons to decide between choosing tipster or team
-        self.radiobutton1 = QRadioButton("Compare Tipsters", self)
-        self.radiobutton2 = QRadioButton("Compare Teams", self)
-        # self.radiobutton1("Compare Tipsters")
-        # self.radiobutton2("Compare Teams")
-        self.radiobutton1.move(10, 20)
-        self.radiobutton2.move(10, 45)
-        self.radiobutton1.resize(150, 25)
-        self.radiobutton2.resize(150, 25)
-        self.radiobutton1.toggled.connect(self.radiobutton1_pushed)
-        self.radiobutton2.toggled.connect(self.radiobutton2_pushed)
-        self.radiobutton1.setChecked(True)
 
         # Label for tipster input box.
         self.nameLabel = QLabel(self)
         self.nameLabel.resize(100, 25)
         self.nameLabel.setText('Select Tipster: ')
         self.nameLabel.move(5, 110)
+        
         # Label for team input box.
         self.teamLabel = QLabel(self)
         self.teamLabel.resize(100, 25)
@@ -495,45 +506,89 @@ class MainWindow(QMainWindow):
         self.locLabel.resize(100, 25)
         self.locLabel.setText('Select Location:')
         self.locLabel.move(5, 140)
+        
+        # Tab 2 - Pos by rank.
+        
+        self.label = QLabel("To see specific tipster margin worms, tick their respective box.\nNo ticked boxes will highlight everyone.")
+        self.listCheckBox = tipstername
+        self.myLabel = ['','','','','','','','','','','','','','','','','','','','','','','','']
 
-        #################### ACTION COMMANDS ###########################
+        for i, v in enumerate(self.listCheckBox):
+            self.listCheckBox[i] = QCheckBox(v)
+            self.myLabel[i] = QLabel()
+            self.listCheckBox[i].stateChanged.connect(self.tipsterSelected)
+    
+        self.launchposbyrank = QPushButton('Go!', self)
+        self.launchposbyrank.move(5, 180)
+        self.launchposbyrank.clicked.connect(self.ladder)
+        # #################### ACTION COMMANDS ###########################
         self.buttonrun.clicked.connect(self.button_pushed)        
-        # self.checkbox.setCheckState(Qt.CheckState.Checked)
         self.checkbox.stateChanged.connect(self.state_changed)
+        
+        # Tab 1
 
-        layout.addWidget(self.checkbox, Qt.AlignmentFlag.AlignCenter)
-        layout.addWidget(self.buttonrun, Qt.AlignmentFlag.AlignLeft)
-        layout.addWidget(self.buttonposbyrank, Qt.AlignmentFlag.AlignRight)
-        layout.addWidget(self.buttonposbymarg, Qt.AlignmentFlag.AlignRight)
-        layout.addWidget(self.tipstercombobox, Qt.AlignmentFlag.AlignLeft)
-        layout.addWidget(self.teamcombobox, Qt.AlignmentFlag.AlignLeft)
-        layout.addWidget(self.loccombobox, Qt.AlignmentFlag.AlignLeft)
-        layout.addWidget(self.radiobutton1, Qt.AlignmentFlag.AlignLeft)
-        layout.addWidget(self.radiobutton2, Qt.AlignmentFlag.AlignLeft)
+        self.tab1.layout = QVBoxLayout(self)
+        self.tab1.layout.addWidget(self.nameLabel)#, Qt.AlignmentFlag.AlignLeft)
+        self.tab1.layout.addWidget(self.tipstercombobox)#, Qt.AlignmentFlag.AlignLeft)
+        self.tab1.layout.addWidget(self.teamLabel)#, Qt.AlignmentFlag.AlignLeft)
+        self.tab1.layout.addWidget(self.teamcombobox)#, Qt.AlignmentFlag.AlignLeft)
+        self.tab1.layout.addWidget(self.locLabel)#, Qt.AlignmentFlag.AlignLeft)
+        self.tab1.layout.addWidget(self.loccombobox)#, Qt.AlignmentFlag.AlignLeft)
+        self.tab1.layout.addWidget(self.radiobutton1)#, Qt.AlignmentFlag.AlignLeft)
+        self.tab1.layout.addWidget(self.radiobutton2)#, Qt.AlignmentFlag.AlignLeft)
+        self.tab1.layout.addWidget(self.checkbox)#, Qt.AlignmentFlag.AlignCenter)
+        self.tab1.layout.addWidget(self.buttonrun)#, Qt.AlignmentFlag.AlignLeft)
+        self.tab1.setLayout(self.tab1.layout)
 
+        # Tab 2
+        
+        self.tab2.layout = QVBoxLayout(self)
+        self.tab2.layout.addWidget(self.label)
+        self.tab2.layout.addWidget(self.launchposbyrank)#, Qt.AlignmentFlag.AlignRight)
+        for i, v in enumerate(self.listCheckBox):
+            self.tab2.layout.addWidget(self.listCheckBox[i])#, i)#, Qt.AlignmentFlag.AlignLeft)
+            self.tab2.layout.addWidget(self.myLabel[i])#, i)#, Qt.AlignmentFlag.AlignLeft)
+            self.listCheckBox[i].stateChanged.connect(self.tipsterSelected)
+        self.tab2.setLayout(self.tab2.layout)
+
+        self.layout.addWidget(self.tabs)
+        self.setLayout(self.layout)
+        
         # show the window
-        self.show()
+        # self.show()
+        
+    def tipsterSelected(self):
+        self.chosentipsters = []
+        for i in range(len(self.listCheckBox)):
+            if (self.listCheckBox[i].isChecked()):
+                self.chosentipsters.append(self.listCheckBox[i].text())
+                
+        return(self.chosentipsters)
+
+    def ladder(self):
+        generateladder(tips, fixture)
+        position_per_round(self.chosentipsters)
         
     def WhatIfLadder(self):
-        plotwhatifladder(whatifscore, str(self.tipstercombobox.currentText()))
+        plotwhatifladder(whatifscore, self.tipstercombobox.currentText())
 
-    def ladderposbyrank(self):
-        if self.w is None:
-            self.w = LadderWindow()
-            self.w.show()
+    # def ladderposbyrank(self):
+    #     if self.w is None:
+    #         self.w = LadderWindow()
+    #         self.w.show()
             
-        else:
-            self.w.close()
-            self.w = None
+    #     else:
+    #         self.w.close()
+    #         self.w = None
         
-    def ladderposbymarg(self):
-        if self.w is None:
-            self.w = MarginWindow()
-            self.w.show()
+    # def ladderposbymarg(self):
+    #     if self.w is None:
+    #         self.w = MarginWindow()
+    #         self.w.show()
             
-        else:
-            self.w.close()
-            self.w = None
+    #     else:
+    #         self.w.close()
+    #         self.w = None
     
     def tipsterselected(self, s):
         print()
@@ -542,9 +597,10 @@ class MainWindow(QMainWindow):
         print()
         
     def locselected(self, s):
-        print()
+        print(self.loccombobox.currentText())
 
     def button_pushed(self):
+        print(str(self.loccombobox.currentText()))
         t, y = rundata(str(self.loccombobox.currentText()))
         if self.radiobutton2.isChecked():
             plotbar(t, teams, teamshort, tipstername, str(self.loccombobox.currentText()), str(self.tipstercombobox.currentText()), self.checkbox.isChecked())
@@ -563,182 +619,95 @@ class MainWindow(QMainWindow):
     def radiobutton2_pushed(self, rb2):
         print()
 
-class MarginWindow(QWidget):
-    """
 
-    """
-    def __init__(self):
-        super().__init__()
-        self.setGeometry(100, 100, 400, 400)
-        layout = QVBoxLayout()
-        self.setLayout(layout)
+# class MarginWindow(QWidget):
+#     """
 
-        self.label = QLabel("To see specific tipster margin worms, tick their respective box.\nNo ticked boxes will highlight everyone.")
-        layout.addWidget(self.label)
+#     """
+#     def __init__(self):
+#         super().__init__()
+#         self.setGeometry(100, 100, 400, 400)
+#         layout = QVBoxLayout()
+#         self.setLayout(layout)
 
-        self.listCheckBox = tipstername
-        self.myLabel = ['','','','','','','','','','','','','','','','','','','','','','','','']
+#         self.label = QLabel("To see specific tipster margin worms, tick their respective box.\nNo ticked boxes will highlight everyone.")
+#         layout.addWidget(self.label)
 
-        for i, v in enumerate(self.listCheckBox):
-            self.listCheckBox[i] = QCheckBox(v)
-            #self.listCheckBox[i].move(125, 20)
-            #self.listCheckBox[i].setStyleSheet("QCheckBox::indicator { width: 10px; height: 2px;}")
-            self.myLabel[i] = QLabel()
-            layout.addWidget(self.listCheckBox[i], i, Qt.AlignmentFlag.AlignLeft)
-            layout.addWidget(self.myLabel[i],    i, Qt.AlignmentFlag.AlignLeft)
+#         self.listCheckBox = tipstername
+#         self.myLabel = ['','','','','','','','','','','','','','','','','','','','','','','','']
+
+#         for i, v in enumerate(self.listCheckBox):
+#             self.listCheckBox[i] = QCheckBox(v)
+#             #self.listCheckBox[i].move(125, 20)
+#             #self.listCheckBox[i].setStyleSheet("QCheckBox::indicator { width: 10px; height: 2px;}")
+#             self.myLabel[i] = QLabel()
+#             layout.addWidget(self.listCheckBox[i], i, Qt.AlignmentFlag.AlignLeft)
+#             layout.addWidget(self.myLabel[i],    i, Qt.AlignmentFlag.AlignLeft)
             
-            self.listCheckBox[i].stateChanged.connect(self.tipsterSelected)
+#             self.listCheckBox[i].stateChanged.connect(self.tipsterSelected)
     
-        self.launchmargbyrank = QPushButton('Go!', self)
-        #self.launchposbyrank.move(5, 180)
-        layout.addWidget(self.launchmargbyrank, Qt.AlignmentFlag.AlignRight)
-        self.launchmargbyrank.clicked.connect(self.ladder)
+#         self.launchmargbyrank = QPushButton('Go!', self)
+#         #self.launchposbyrank.move(5, 180)
+#         layout.addWidget(self.launchmargbyrank, Qt.AlignmentFlag.AlignRight)
+#         self.launchmargbyrank.clicked.connect(self.ladder)
 
 
-    def tipsterSelected(self):
-        self.chosentipsters = []
-        for i in range(len(self.listCheckBox)):
-            if (self.listCheckBox[i].isChecked()):
-                self.chosentipsters.append(self.listCheckBox[i].text())
+#     def tipsterSelected(self):
+#         self.chosentipsters = []
+#         for i in range(len(self.listCheckBox)):
+#             if (self.listCheckBox[i].isChecked()):
+#                 self.chosentipsters.append(self.listCheckBox[i].text())
 
-    def ladder(self):
-        generateladder(tips, fixture)
-        margin_per_round(self.chosentipsters)
+#     def ladder(self):
+#         generateladder(tips, fixture)
+#         margin_per_round(self.chosentipsters)
 
-class LadderWindow(QWidget):
-    """
+# class LadderWindow(QWidget):
+#     """
 
-    """
-    def __init__(self):
-        super().__init__()
-        self.setGeometry(100, 100, 400, 400)
-        layout = QVBoxLayout()
-        self.setLayout(layout)
+#     """
+#     def __init__(self):
+#         super().__init__()
+#         self.setGeometry(100, 100, 400, 400)
+#         layout = QVBoxLayout()
+#         self.setLayout(layout)
 
-        self.label = QLabel("To see specific tipster margin worms, tick their respective box.\nNo ticked boxes will highlight everyone.")
-        layout.addWidget(self.label)
+#         self.label = QLabel("To see specific tipster margin worms, tick their respective box.\nNo ticked boxes will highlight everyone.")
+#         layout.addWidget(self.label)
 
-        self.listCheckBox = tipstername
-        self.myLabel = ['','','','','','','','','','','','','','','','','','','','','','','','']
+#         self.listCheckBox = tipstername
+#         self.myLabel = ['','','','','','','','','','','','','','','','','','','','','','','','']
 
-        for i, v in enumerate(self.listCheckBox):
-            self.listCheckBox[i] = QCheckBox(v)
-            #self.listCheckBox[i].move(125, 20)
-            #self.listCheckBox[i].setStyleSheet("QCheckBox::indicator { width: 10px; height: 2px;}")
-            self.myLabel[i] = QLabel()
-            layout.addWidget(self.listCheckBox[i], i, Qt.AlignmentFlag.AlignLeft)
-            layout.addWidget(self.myLabel[i],    i, Qt.AlignmentFlag.AlignLeft)
+#         for i, v in enumerate(self.listCheckBox):
+#             self.listCheckBox[i] = QCheckBox(v)
+#             #self.listCheckBox[i].move(125, 20)
+#             #self.listCheckBox[i].setStyleSheet("QCheckBox::indicator { width: 10px; height: 2px;}")
+#             self.myLabel[i] = QLabel()
+#             layout.addWidget(self.listCheckBox[i], i, Qt.AlignmentFlag.AlignLeft)
+#             layout.addWidget(self.myLabel[i],    i, Qt.AlignmentFlag.AlignLeft)
             
-            self.listCheckBox[i].stateChanged.connect(self.tipsterSelected)
+#             self.listCheckBox[i].stateChanged.connect(self.tipsterSelected)
     
-        self.launchposbyrank = QPushButton('Go!', self)
-        #self.launchposbyrank.move(5, 180)
-        layout.addWidget(self.launchposbyrank, Qt.AlignmentFlag.AlignRight)
-        self.launchposbyrank.clicked.connect(self.ladder)
+#         self.launchposbyrank = QPushButton('Go!', self)
+#         #self.launchposbyrank.move(5, 180)
+#         layout.addWidget(self.launchposbyrank, Qt.AlignmentFlag.AlignRight)
+#         self.launchposbyrank.clicked.connect(self.ladder)
 
 
-    def tipsterSelected(self):
-        self.chosentipsters = []
-        for i in range(len(self.listCheckBox)):
-            if (self.listCheckBox[i].isChecked()):
-                self.chosentipsters.append(self.listCheckBox[i].text())
+#     def tipsterSelected(self):
+#         self.chosentipsters = []
+#         for i in range(len(self.listCheckBox)):
+#             if (self.listCheckBox[i].isChecked()):
+#                 self.chosentipsters.append(self.listCheckBox[i].text())
 
-    def ladder(self):
-        generateladder(tips, fixture)
-        position_per_round(self.chosentipsters)
+#     def ladder(self):
+#         generateladder(tips, fixture)
+#         position_per_round(self.chosentipsters)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = MainWindow()
     sys.exit(app.exec())
-
-
-
-
-
-
-# print(self.listCheckBox.isChecked())
-        # print(self.listCheckBox.text())
-
-
-            
-    # create a checkbox for all tipsters
-        # for name in tipstername
-        #     self.tipstercheckbox = QCheckBox(str(name), self)
-        #     self.checkbox.move(125, 180)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-############################# PLOTTING SECTION ##############################
-# GRAPH 1
-# # Comparing Tipsters across one team - Total tips vs Correct Tips only
-# x_ax = np.arange(len(y))
-# barwidth = 0.25
-# plt.figure(figsize=(16,9))
-# plt.bar(x_ax-0.5*barwidth, y['yattempts'], label="Amount Tipped")
-# plt.hlines(y['yteamwinsdraws'][0], xmin=0, xmax=len(tipsters)-1, color='grey', label=chosenteam+" Wins (& Draws) \nTotal: "+str(y['yteamwinsdraws'][0]))
-# plt.bar(x_ax-0.5*barwidth, y['yscore'], label="Correct Tips")
-# plt.title(chosenteam+" Across All Tipsters\n Location - "+location, fontsize=20)
-# plt.xticks(x_ax, y['Name'], rotation=90)
-# plt.locator_params(axis='y', integer=True, tight=True)
-# plt.grid(axis='y', linewidth=0.5)
-# plt.xlabel('Tipsters', fontsize=16)
-# plt.ylabel('Score', fontsize=16)
-# plt.legend(loc=(1.04, 0.5))
-# plt.show()   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -761,7 +730,6 @@ if __name__ == '__main__':
 # plt.ylabel('Score', fontsize=16)
 # plt.legend(loc=(1.04, 0.5))
 # plt.show() 
-
 
 
 # Simplified breakdown of correct vs incorrect tips across all tipsters for one team. 
