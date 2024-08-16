@@ -255,7 +255,7 @@ for name in tipstername:
     tipsters[name] = Tipster(name, df)
     
 def plotwhatifladder(whatifscore, variable):
-    variable = 'Adam Slimming'
+    # variable = 'Adam Slimming'
     # print("variable: ", variable)
     plt.figure(figsize=(9,9))
     whatiftipster = whatifscore[['Team', variable]] #.sort_values(by=str(variable), ascending=False)
@@ -471,7 +471,15 @@ class MyTableWidget(QWidget):
         self.tipstercombobox.move(105, 110)
         self.tipstercombobox.resize(150, 25)
         
-        self.tipstercombobox.currentTextChanged.connect(self.tipsterselected)
+        # # Tipster ComboBox
+        self.tipsterwhatif = QComboBox(self)
+        for name in tipstername:
+            self.tipsterwhatif.addItems([name])
+        self.tipsterwhatif.move(105, 110)
+        self.tipsterwhatif.resize(150, 25)
+        
+        self.tipsterwhatif.currentTextChanged.connect(self.tipsterselected)
+        self.tipsterwhatif.currentTextChanged.connect(self.tipsterselected)
         
         # Team ComboBox
         self.teamcombobox = QComboBox(self)
@@ -514,6 +522,7 @@ class MyTableWidget(QWidget):
         
         self.label = QLabel("To see specific tipster margin worms, tick their respective box.\nNo ticked boxes will highlight everyone.")
         self.label2 = QLabel("To see specific tipster margin worms, tick their respective box.\nNo ticked boxes will highlight everyone.")
+        self.label3 = QLabel("What would the ladder look like if every tip you made was correct?")
 
         # self.listCheckBox = tipstername
         # self.myLabel = ['','','','','','','','','','','','','','','','','','','','','','','','']
@@ -718,8 +727,13 @@ class MyTableWidget(QWidget):
         self.launchposbymarg = QPushButton('Go!', self)
         self.launchposbymarg.move(5, 180)
         self.launchposbymarg.clicked.connect(self.margin)
+        
+        # Execute Button to run what if table
+        self.runwhatif = QPushButton('Run!', self)
+        self.runwhatif.move(5, 180)
         # #################### ACTION COMMANDS ###########################
-        self.buttonrun.clicked.connect(self.button_pushed)        
+        self.buttonrun.clicked.connect(self.button_pushed)   
+        self.runwhatif.clicked.connect(self.WhatIfLadder)        
         self.checkbox.stateChanged.connect(self.state_changed)
         
         # Tab 1
@@ -781,6 +795,8 @@ class MyTableWidget(QWidget):
         # self.layout.addWidget(self.tabs)
         # self.setLayout(self.layout)
         
+        # Tab 3
+        
         self.tab3.layout = QVBoxLayout(self)
         self.tab3.layout.addWidget(self.label2)
         self.tab3.layout.addWidget(self.alistCheckBox1)
@@ -808,11 +824,16 @@ class MyTableWidget(QWidget):
         self.tab3.layout.addWidget(self.alistCheckBox23)
         self.tab3.layout.addWidget(self.alistCheckBox24)
         self.tab3.layout.addWidget(self.launchposbymarg)#, Qt.AlignmentFlag.AlignRight)
-
         self.tab3.setLayout(self.tab3.layout)
+        
+        self.tab4.layout = QVBoxLayout(self)
+        self.tab4.layout.addWidget(self.tipsterwhatif)#, Qt.AlignmentFlag.AlignLeft)
+        self.tab4.layout.addWidget(self.runwhatif)
+        self.tab4.layout.addWidget(self.label3)
+        self.tab4.setLayout(self.tab4.layout)
         self.layout.addWidget(self.tabs)
         self.setLayout(self.layout)
-        
+
         # show the window
         # self.show()
         
@@ -938,7 +959,7 @@ class MyTableWidget(QWidget):
         margin_per_round(self.chosentipsters)
         
     def WhatIfLadder(self):
-        plotwhatifladder(whatifscore, self.tipstercombobox.currentText())
+        plotwhatifladder(whatifscore, self.tipsterwhatif.currentText())
 
     # def ladderposbyrank(self):
     #     if self.w is None:
@@ -965,7 +986,7 @@ class MyTableWidget(QWidget):
         print()
         
     def locselected(self, s):
-        print(self.loccombobox.currentText())
+        print()
 
     def button_pushed(self):
         # print(str(self.loccombobox.currentText()))
