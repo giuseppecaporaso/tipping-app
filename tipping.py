@@ -266,7 +266,7 @@ def margin_per_round(tipster, no_users=int(tips.nunique()["NAME"])):
     cm_1 = plt.get_cmap('gist_ncar_r')
     # Does the username exist? 
     if not(bool(tipster)) or '' in tipster:
-        plt.figure(figsize=(8, 8))
+        plt.figure(figsize=(12, 8))
         margin_per_user, margin_profile = calc_margin(tips, rounds, no_users)
         for user in range(no_users):    
             plt.plot(rounds, margin_per_user[user], label=margin_profile[-1]['NAME'].iloc[user], linewidth=4, color=cm_1(user*10+15))   
@@ -295,7 +295,7 @@ def position_per_round(tipster, no_users=int(tips.nunique()["NAME"])):
     rank_profile = []
     # Does the username exist? 
     if not(bool(tipster)) or '' in tipster:
-        plt.figure(figsize=(8, 8))
+        plt.figure(figsize=(12, 8))
         # Go through each tipster
         for user in range(0, no_users):
             # This line extracts a tipsters score for each round, along with an index indicating their final position after each round. Very handy!

@@ -486,9 +486,24 @@ class MyTableWidget(QWidget):
         for i in range(len(sorted(list(fixture['Home Team'].unique())))):
             self.teamcombobox.addItems([sorted(list(fixture['Home Team'].unique()))[i]])
         self.teamcombobox.move(105, 80)
-        self.teamcombobox.resize(150, 25)
-        
+        self.teamcombobox.resize(150, 25)     
         self.teamcombobox.currentTextChanged.connect(self.teamselected)
+        # self.tipstercombobox.setEnabled(False)
+        # self.tipstercombobox.setDisabled(True)
+
+        if self.radiobutton2.isChecked():
+            self.teamcombobox.setEnabled(False)
+            self.teamcombobox.setDisabled(True)
+            
+            self.tipstercombobox.setEnabled(True)
+            self.tipstercombobox.setDisabled(False)
+
+        if self.radiobutton1.isChecked():
+            self.teamcombobox.setEnabled(True)
+            self.teamcombobox.setDisabled(False)
+            
+            self.tipstercombobox.setEnabled(False)
+            self.tipstercombobox.setDisabled(True)
 
         # Location ComboBox
         self.loccombobox = QComboBox(self)
@@ -522,7 +537,7 @@ class MyTableWidget(QWidget):
         
         self.label = QLabel("To see specific tipster margin worms, tick their respective box.\nNo ticked boxes will highlight everyone.")
         self.label2 = QLabel("To see specific tipster margin worms, tick their respective box.\nNo ticked boxes will highlight everyone.")
-        self.label3 = QLabel("What would the ladder look like if every tip you made was correct?")
+        self.label3 = QLabel("What would the ladder look like if every tip you made was correct?\n(Missed tips will be counted as draws.)")
 
         # self.listCheckBox = tipstername
         # self.myLabel = ['','','','','','','','','','','','','','','','','','','','','','','','']
@@ -753,83 +768,70 @@ class MyTableWidget(QWidget):
      
         # Tab 2
         
-        self.tab2.layout = QVBoxLayout(self)
-        self.tab2.layout.addWidget(self.label)
-        self.tab2.layout.addWidget(self.listCheckBox1)
-        self.tab2.layout.addWidget(self.listCheckBox2)
-        self.tab2.layout.addWidget(self.listCheckBox3)
-        self.tab2.layout.addWidget(self.listCheckBox4)
-        self.tab2.layout.addWidget(self.listCheckBox5)
-        self.tab2.layout.addWidget(self.listCheckBox6)
-        self.tab2.layout.addWidget(self.listCheckBox7)
-        self.tab2.layout.addWidget(self.listCheckBox8)
-        self.tab2.layout.addWidget(self.listCheckBox9)
-        self.tab2.layout.addWidget(self.listCheckBox10)
-        self.tab2.layout.addWidget(self.listCheckBox11)
-        self.tab2.layout.addWidget(self.listCheckBox12)
-        self.tab2.layout.addWidget(self.listCheckBox13)
-        self.tab2.layout.addWidget(self.listCheckBox14)
-        self.tab2.layout.addWidget(self.listCheckBox15)
-        self.tab2.layout.addWidget(self.listCheckBox16)
-        self.tab2.layout.addWidget(self.listCheckBox17)
-        self.tab2.layout.addWidget(self.listCheckBox18)
-        self.tab2.layout.addWidget(self.listCheckBox19)
-        self.tab2.layout.addWidget(self.listCheckBox20)
-        self.tab2.layout.addWidget(self.listCheckBox21)
-        self.tab2.layout.addWidget(self.listCheckBox22)
-        self.tab2.layout.addWidget(self.listCheckBox23)
-        self.tab2.layout.addWidget(self.listCheckBox24)
-        self.tab2.layout.addWidget(self.launchposbyrank)#, Qt.AlignmentFlag.AlignRight)
-        
-        
-        # print(self.listCheckBox)
-        # for i, v in enumerate(self.listCheckBox):
-        #     # print(self.listCheckBox[i])
-        #     self.listCheckBox[i] = QCheckBox(v)
-        #     # print(QCheckBox(v))
-        #     self.myLabel[i] = QLabel()
-        #     self.tab2.layout.addWidget(self.listCheckBox[i], i)#, Qt.AlignmentFlag.AlignLeft)
-        #     self.tab2.layout.addWidget(self.myLabel[i], i)#, Qt.AlignmentFlag.AlignLeft)
-        #     self.listCheckBox[i].stateChanged.connect(self.tipsterSelected)
+        self.tab2.layout = QGridLayout(self)
+        self.tab2.layout.addWidget(self.label, 0, 0, Qt.AlignmentFlag.AlignCenter)
+        self.tab2.layout.addWidget(self.listCheckBox1, 1, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox2, 2, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox3, 3, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox4, 4, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox5, 5, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox6, 6, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox7, 7, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox8, 8, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox9, 9, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox10, 10, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox11, 11, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox12, 12, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox13, 1, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox14, 2, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox15, 3, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox16, 4, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox17, 5, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox18, 6, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox19, 7, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox20, 8, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox21, 9, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox22, 10, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox23, 11, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.listCheckBox24, 12, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.launchposbyrank, 13, 0, Qt.AlignmentFlag.AlignCenter)
         self.tab2.setLayout(self.tab2.layout)
-        # self.layout.addWidget(self.tabs)
-        # self.setLayout(self.layout)
         
         # Tab 3
         
-        self.tab3.layout = QVBoxLayout(self)
-        self.tab3.layout.addWidget(self.label2)
-        self.tab3.layout.addWidget(self.alistCheckBox1)
-        self.tab3.layout.addWidget(self.alistCheckBox2)
-        self.tab3.layout.addWidget(self.alistCheckBox3)
-        self.tab3.layout.addWidget(self.alistCheckBox4)
-        self.tab3.layout.addWidget(self.alistCheckBox5)
-        self.tab3.layout.addWidget(self.alistCheckBox6)
-        self.tab3.layout.addWidget(self.alistCheckBox7)
-        self.tab3.layout.addWidget(self.alistCheckBox8)
-        self.tab3.layout.addWidget(self.alistCheckBox9)
-        self.tab3.layout.addWidget(self.alistCheckBox10)
-        self.tab3.layout.addWidget(self.alistCheckBox11)
-        self.tab3.layout.addWidget(self.alistCheckBox12)
-        self.tab3.layout.addWidget(self.alistCheckBox13)
-        self.tab3.layout.addWidget(self.alistCheckBox14)
-        self.tab3.layout.addWidget(self.alistCheckBox15)
-        self.tab3.layout.addWidget(self.alistCheckBox16)
-        self.tab3.layout.addWidget(self.alistCheckBox17)
-        self.tab3.layout.addWidget(self.alistCheckBox18)
-        self.tab3.layout.addWidget(self.alistCheckBox19)
-        self.tab3.layout.addWidget(self.alistCheckBox20)
-        self.tab3.layout.addWidget(self.alistCheckBox21)
-        self.tab3.layout.addWidget(self.alistCheckBox22)
-        self.tab3.layout.addWidget(self.alistCheckBox23)
-        self.tab3.layout.addWidget(self.alistCheckBox24)
-        self.tab3.layout.addWidget(self.launchposbymarg)#, Qt.AlignmentFlag.AlignRight)
+        self.tab3.layout = QGridLayout(self)
+        self.tab3.layout.addWidget(self.label2, 0, 0, Qt.AlignmentFlag.AlignCenter)
+        self.tab3.layout.addWidget(self.alistCheckBox1, 1, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox2, 2, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox3, 3, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox4, 4, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox5, 5, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox6, 6, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox7, 7, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox8, 8, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox9, 9, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox10, 10, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox11, 11, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox12, 12, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox13, 1, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox14, 2, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox15, 3, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox16, 4, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox17, 5, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox18, 6, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox19, 7, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox20, 8, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox21, 9, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox22, 10, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox23, 11, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.alistCheckBox24, 12, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.launchposbymarg, 13, 0, Qt.AlignmentFlag.AlignCenter)
         self.tab3.setLayout(self.tab3.layout)
         
         self.tab4.layout = QVBoxLayout(self)
+        self.tab4.layout.addWidget(self.label3)
         self.tab4.layout.addWidget(self.tipsterwhatif)#, Qt.AlignmentFlag.AlignLeft)
         self.tab4.layout.addWidget(self.runwhatif)
-        self.tab4.layout.addWidget(self.label3)
         self.tab4.setLayout(self.tab4.layout)
         self.layout.addWidget(self.tabs)
         self.setLayout(self.layout)
@@ -1000,13 +1002,40 @@ class MyTableWidget(QWidget):
         print()
     
     # Tipsters!
-    def radiobutton1_pushed(self, rb1):
+    def radiobutton1_pushed(self):
         print()
+        if self.radiobutton2.isChecked():
+            self.teamcombobox.setEnabled(False)
+            self.teamcombobox.setDisabled(True)
+            
+            self.tipstercombobox.setEnabled(True)
+            self.tipstercombobox.setDisabled(False)
+
+        if self.radiobutton1.isChecked():
+            self.teamcombobox.setEnabled(True)
+            self.teamcombobox.setDisabled(False)
+            
+            self.tipstercombobox.setEnabled(False)
+            self.tipstercombobox.setDisabled(True)
         #return(rb1)
         
     # Teams!
-    def radiobutton2_pushed(self, rb2):
+    def radiobutton2_pushed(self):
         print()
+        if self.radiobutton2.isChecked():
+            self.teamcombobox.setEnabled(False)
+            self.teamcombobox.setDisabled(True)
+            
+            self.tipstercombobox.setEnabled(True)
+            self.tipstercombobox.setDisabled(False)
+
+        if self.radiobutton1.isChecked():
+            self.teamcombobox.setEnabled(True)
+            self.teamcombobox.setDisabled(False)
+            
+            self.tipstercombobox.setEnabled(False)
+            self.tipstercombobox.setDisabled(True)
+
 
 
 # class MarginWindow(QWidget):
