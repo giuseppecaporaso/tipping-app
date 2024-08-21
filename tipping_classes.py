@@ -21,7 +21,7 @@ from PyQt6.QtCore import QSize, Qt
 from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QCheckBox, QGridLayout, QWidget, QVBoxLayout, QLineEdit, QLabel, QComboBox, QRadioButton, QButtonGroup, QTabWidget
 sns.set()
 
-tips, fixture = loaddf('C:\\Users\\giuseppe.caporaso\\Downloads\\tipping_files\\')
+tips, fixture = loaddf('.')
 tipstername = fixture.columns[7:].tolist()
 teamshort = ['ADL','BRIS','CARL','COL','ESS','FRE','GWS','GEEL','GCS','HAW','MEL','NTH','PORT','RICH','STK','SYD','WCE','WB']
 teams = sorted(list(fixture['Home Team'].unique()))
