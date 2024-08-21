@@ -26,33 +26,6 @@ tipstername = fixture.columns[7:].tolist()
 teamshort = ['ADL','BRIS','CARL','COL','ESS','FRE','GWS','GEEL','GCS','HAW','MEL','NTH','PORT','RICH','STK','SYD','WCE','WB']
 teams = sorted(list(fixture['Home Team'].unique()))
 
-dict_user_names = {
-    'Adam Slimming': 'Adam Slimming',
-    'AndyT23': 'Andrew Tasker',
-    'Anthony Corbo': 'Anthony Corbo',
-    'Aurizn-AI-COE-bot': 'Aurizn Bot',
-    'Benjamin Britten': 'Jonathan Hedger',
-    'BenSlimming': 'Ben Slimming',
-    'CANT1053': 'Andrew Curzons',
-    'Craig Keogh': 'Craig Keogh',
-    'DanGusto': 'Dan Gustainis',
-    'DemocracyManifestt': 'Giuseppe Caporaso',
-    'George/MikeH': 'Mike Holmes',
-    'GinbeysAndTs': 'James Knowles',
-    'jza_': 'Jerry Tang',
-    'Lee Blucher': 'Lee Blucher',
-    'Master Chapman': 'Jordan Chapman',
-    'Pelle CT': 'Pelle Coscia',
-    'PoTaito': 'Tait Reid',
-    'PVAnotC': 'Peter Amerl',
-    'Riley Galbraith': 'Riley Galbraith',
-    'Sarah Amadio': 'Sarah Amadio',
-    'Schulta': 'Ben Schultz',
-    'Spirit Phoenix': 'Drew Dwyer',
-    'Tamko': 'Tammy Oldfield',
-    'Wonderbread': 'Brad Lukins',  
-    }
-
 dict_names_user = {
     'Adam Slimming': 'Adam Slimming',
     'Andrew Tasker': 'AndyT23',
@@ -79,7 +52,6 @@ dict_names_user = {
     'Tammy Oldfield': 'Tamko',
     'Brad Lukins': 'Wonderbread',  
     }
-
 
 whatifscore = pd.DataFrame()
 whatifscore['Team'] = teams
@@ -1104,44 +1076,6 @@ if __name__ == '__main__':
     sys.exit(app.exec())
 
 
-
-
-# Comparing Teams across one tipster - Breakdown of all four possible tip outcomes per team
-# i.e Tipped and team won, Tipped and team lost, Not tipped and team won and Not tipped and team lost.
-# x_ax = np.arange(len(teamshort))
-# barwidth = 0.20
-# plt.figure(figsize=(16,9))
-# plt.hlines(0, xmin=0, xmax=len(teamshort)-1, color='black', linewidth=1)
-# plt.bar(x_ax-0.5*barwidth, list(t[t['Name']==tipster]['Score'])[0], barwidth, color='blue', label="Tipped and team won", align='center', edgecolor='black')
-# plt.bar(x_ax+0.5*barwidth, list(t[t['Name']==tipster]['ydidnttipdidntwin'])[0], barwidth, color='deepskyblue', label="Didn't tip and team lost/drew", align='center', edgecolor='black')
-# plt.bar(x_ax+0.5*barwidth, list(t[t['Name']==tipster]['ydidnttipbutwon'])[0], barwidth, color='pink', label="Didn't tip and team won", align='center', edgecolor='black')
-# plt.bar(x_ax-0.5*barwidth, list(t[t['Name']==tipster]['ytippedbutdidntwin'])[0], barwidth, color='red', label="Tipped and team lost/drew", align='center', edgecolor='black')
-# plt.title(tipster+" Across All Teams\n Location - "+location, fontsize=20)
-# plt.xticks(x_ax, teamshort, rotation=90)
-# plt.locator_params(axis='y', integer=True, tight=True)
-# plt.grid(axis='y', linewidth=0.5)
-# plt.xlabel('Teams', fontsize=16)
-# plt.ylabel('Score', fontsize=16)
-# plt.legend(loc=(1.04, 0.5))
-# plt.show() 
-
-
-# Simplified breakdown of correct vs incorrect tips across all tipsters for one team. 
-#x_ax = np.arange(len(y))
-# barwidth = 0.25
-# plt.figure(figsize=(16,9))
-# plt.bar(x_ax-0.5*barwidth, totalcorrectpertipster, label="Correctly tipped \n(inc. not tipping the defeated team)")
-# #plt.hlines(y['yteamwinsdraws'][0], xmin=0, xmax=len(tipsters)-1, color='grey', label=chosenteam+" Wins (& Draws) \nTotal: "+str(y['yteamwinsdraws'][0]))
-# plt.bar(x_ax-0.5*barwidth, totalwrongpertipster, label="Incorrectly tipped", color='tomato')
-# plt.bar(x_ax-0.5*barwidth, totalpertipster, color='black', alpha=0.5, label="Net score")
-# plt.title(team+" Across All Tipsters\n Location - "+location, fontsize=20)
-# plt.xticks(x_ax, tipstername, rotation=90)
-# plt.locator_params(axis='y', integer=True, tight=True)
-# plt.grid(axis='y', linewidth=0.5)
-# plt.xlabel('Tipsters', fontsize=16)
-# plt.ylabel('Score', fontsize=16)
-# plt.legend(loc=(1.04, 0.5))
-# plt.show()   
 
    
     
