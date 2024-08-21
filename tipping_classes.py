@@ -16,6 +16,7 @@ from tipping import *
 import seaborn as sns
 import itertools
 # from tkinter import *
+import qdarktheme
 from PyQt6.QtCore import QSize, Qt
 from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QCheckBox, QGridLayout, QWidget, QVBoxLayout, QLineEdit, QLabel, QComboBox, QRadioButton, QButtonGroup, QTabWidget
 sns.set()
@@ -25,6 +26,59 @@ tipstername = fixture.columns[7:].tolist()
 teamshort = ['ADL','BRIS','CARL','COL','ESS','FRE','GWS','GEEL','GCS','HAW','MEL','NTH','PORT','RICH','STK','SYD','WCE','WB']
 teams = sorted(list(fixture['Home Team'].unique()))
 
+dict_user_names = {
+    'Adam Slimming': 'Adam Slimming',
+    'AndyT23': 'Andrew Tasker',
+    'Anthony Corbo': 'Anthony Corbo',
+    'Aurizn-AI-COE-bot': 'Aurizn Bot',
+    'Benjamin Britten': 'Jonathan Hedger',
+    'BenSlimming': 'Ben Slimming',
+    'CANT1053': 'Andrew Curzons',
+    'Craig Keogh': 'Craig Keogh',
+    'DanGusto': 'Dan Gustainis',
+    'DemocracyManifestt': 'Giuseppe Caporaso',
+    'George/MikeH': 'Mike Holmes',
+    'GinbeysAndTs': 'James Knowles',
+    'jza_': 'Jerry Tang',
+    'Lee Blucher': 'Lee Blucher',
+    'Master Chapman': 'Jordan Chapman',
+    'Pelle CT': 'Pelle Coscia',
+    'PoTaito': 'Tait Reid',
+    'PVAnotC': 'Peter Amerl',
+    'Riley Galbraith': 'Riley Galbraith',
+    'Sarah Amadio': 'Sarah Amadio',
+    'Schulta': 'Ben Schultz',
+    'Spirit Phoenix': 'Drew Dwyer',
+    'Tamko': 'Tammy Oldfield',
+    'Wonderbread': 'Brad Lukins',  
+    }
+
+dict_names_user = {
+    'Adam Slimming': 'Adam Slimming',
+    'Andrew Tasker': 'AndyT23',
+    'Anthony Corbo': 'Anthony Corbo',
+    'Aurizn Bot': 'Aurizn-AI-COE-bot',
+    'Jonathan Hedger': 'Benjamin Britten',
+    'Ben Slimming': 'BenSlimming',
+    'Andrew Curzons': 'CANT1053',
+    'Craig Keogh': 'Craig Keogh',
+    'Dan Gustainis': 'DanGusto',
+    'Giuseppe Caporaso': 'DemocracyManifestt',
+    'Mike Holmes': 'George/MikeH',
+    'James Knowles': 'GinbeysAndTs',
+    'Jerry Tang': 'jza_',
+    'Lee Blucher': 'Lee Blucher',
+    'Jordan Chapman': 'Master Chapman',
+    'Pelle Coscia': 'Pelle CT',
+    'Tait Reid': 'PoTaito',
+    'Peter Amerl': 'PVAnotC',
+    'Riley Galbraith': 'Riley Galbraith',
+    'Sarah Amadio': 'Sarah Amadio',
+    'Ben Schultz': 'Schulta',
+    'Drew Dwyer': 'Spirit Phoenix',
+    'Tammy Oldfield': 'Tamko',
+    'Brad Lukins': 'Wonderbread',  
+    }
 
 
 whatifscore = pd.DataFrame()
@@ -453,12 +507,15 @@ class MyTableWidget(QWidget):
         self.radiobutton2.resize(150, 25)
         self.radiobutton1.toggled.connect(self.radiobutton1_pushed)
         self.radiobutton2.toggled.connect(self.radiobutton2_pushed)
-        self.radiobutton1.setChecked(True)
         
         # create a checkbox, button
         self.checkbox = QCheckBox('Detail', self)
         self.checkbox.move(125, 180)
         self.checkbox.setChecked(False)
+        
+        # create a checkbox, button
+        self.realnamebox = QCheckBox('Show full names', self)
+        self.realnamebox.setChecked(False)
         
         # Execute Button to run bar plots
         self.buttonrun = QPushButton('Run!', self)
@@ -470,6 +527,14 @@ class MyTableWidget(QWidget):
             self.tipstercombobox.addItems([name])
         self.tipstercombobox.move(105, 110)
         self.tipstercombobox.resize(150, 25)
+
+        # Tipster ComboBox with real names
+        self.tipstercombobox_realname = QComboBox(self)
+        for name in dict_names_user:
+            self.tipstercombobox_realname.addItems([name])
+        self.tipstercombobox_realname.move(105, 110)
+        self.tipstercombobox_realname.resize(150, 25)
+        self.tipstercombobox_realname.setVisible(False)
         
         # # Tipster ComboBox
         self.tipsterwhatif = QComboBox(self)
@@ -477,6 +542,13 @@ class MyTableWidget(QWidget):
             self.tipsterwhatif.addItems([name])
         self.tipsterwhatif.move(105, 110)
         self.tipsterwhatif.resize(150, 25)
+        
+        self.tipsterwhatif_realname = QComboBox(self)
+        for name in dict_names_user:
+            self.tipsterwhatif_realname.addItems([name])
+        self.tipsterwhatif_realname.move(105, 110)
+        self.tipsterwhatif_realname.resize(150, 25)
+        self.tipsterwhatif_realname.setVisible(False)
         
         self.tipsterwhatif.currentTextChanged.connect(self.tipsterselected)
         self.tipsterwhatif.currentTextChanged.connect(self.tipsterselected)
@@ -488,22 +560,17 @@ class MyTableWidget(QWidget):
         self.teamcombobox.move(105, 80)
         self.teamcombobox.resize(150, 25)     
         self.teamcombobox.currentTextChanged.connect(self.teamselected)
-        # self.tipstercombobox.setEnabled(False)
-        # self.tipstercombobox.setDisabled(True)
 
+        self.tipstercombobox.setDisabled(True)
         if self.radiobutton2.isChecked():
-            self.teamcombobox.setEnabled(False)
             self.teamcombobox.setDisabled(True)
-            
-            self.tipstercombobox.setEnabled(True)
             self.tipstercombobox.setDisabled(False)
 
         if self.radiobutton1.isChecked():
-            self.teamcombobox.setEnabled(True)
             self.teamcombobox.setDisabled(False)
-            
-            self.tipstercombobox.setEnabled(False)
             self.tipstercombobox.setDisabled(True)
+            
+        self.radiobutton1.setChecked(True)
 
         # Location ComboBox
         self.loccombobox = QComboBox(self)
@@ -538,9 +605,6 @@ class MyTableWidget(QWidget):
         self.label = QLabel("To see specific tipster margin worms, tick their respective box.\nNo ticked boxes will highlight everyone.")
         self.label2 = QLabel("To see specific tipster margin worms, tick their respective box.\nNo ticked boxes will highlight everyone.")
         self.label3 = QLabel("What would the ladder look like if every tip you made was correct?\n(Missed tips will be counted as draws.)")
-
-        # self.listCheckBox = tipstername
-        # self.myLabel = ['','','','','','','','','','','','','','','','','','','','','','','','']
         
         
         self.listCheckBox1 = QCheckBox(tipstername[0], self)
@@ -748,6 +812,7 @@ class MyTableWidget(QWidget):
         self.runwhatif.move(5, 180)
         # #################### ACTION COMMANDS ###########################
         self.buttonrun.clicked.connect(self.button_pushed)   
+        self.realnamebox.clicked.connect(self.realnames_pushed)   
         self.runwhatif.clicked.connect(self.WhatIfLadder)        
         self.checkbox.stateChanged.connect(self.state_changed)
         
@@ -756,6 +821,7 @@ class MyTableWidget(QWidget):
         self.tab1.layout = QVBoxLayout(self)
         self.tab1.layout.addWidget(self.nameLabel)#, Qt.AlignmentFlag.AlignLeft)
         self.tab1.layout.addWidget(self.tipstercombobox)#, Qt.AlignmentFlag.AlignLeft)
+        self.tab1.layout.addWidget(self.tipstercombobox_realname)#, Qt.AlignmentFlag.AlignLeft)
         self.tab1.layout.addWidget(self.teamLabel)#, Qt.AlignmentFlag.AlignLeft)
         self.tab1.layout.addWidget(self.teamcombobox)#, Qt.AlignmentFlag.AlignLeft)
         self.tab1.layout.addWidget(self.locLabel)#, Qt.AlignmentFlag.AlignLeft)
@@ -763,6 +829,7 @@ class MyTableWidget(QWidget):
         self.tab1.layout.addWidget(self.radiobutton1)#, Qt.AlignmentFlag.AlignLeft)
         self.tab1.layout.addWidget(self.radiobutton2)#, Qt.AlignmentFlag.AlignLeft)
         self.tab1.layout.addWidget(self.checkbox)#, Qt.AlignmentFlag.AlignCenter)
+        self.tab1.layout.addWidget(self.realnamebox)#, Qt.AlignmentFlag.AlignLeft)
         self.tab1.layout.addWidget(self.buttonrun)#, Qt.AlignmentFlag.AlignLeft)
         self.tab1.setLayout(self.tab1.layout)
      
@@ -830,7 +897,8 @@ class MyTableWidget(QWidget):
         
         self.tab4.layout = QVBoxLayout(self)
         self.tab4.layout.addWidget(self.label3)
-        self.tab4.layout.addWidget(self.tipsterwhatif)#, Qt.AlignmentFlag.AlignLeft)
+        self.tab4.layout.addWidget(self.tipsterwhatif)
+        self.tab4.layout.addWidget(self.tipsterwhatif_realname)
         self.tab4.layout.addWidget(self.runwhatif)
         self.tab4.setLayout(self.tab4.layout)
         self.layout.addWidget(self.tabs)
@@ -841,9 +909,6 @@ class MyTableWidget(QWidget):
         
     def tipsterSelected(self):
         self.chosentipsters = []
-        # for i in range(len(self.listCheckBox[i])):
-            # if (self.listCheckBox[i].isChecked()):
-            #     self.chosentipsters.append(self.listCheckBox[i].text())
         if (self.listCheckBox1.isChecked()):
             self.chosentipsters.append(self.listCheckBox1.text())
         if (self.listCheckBox2.isChecked()):
@@ -949,37 +1014,21 @@ class MyTableWidget(QWidget):
         return(self.chosentipsters)
 
     def ladder(self):
-        # if not(hasattr(MyTableWidget, self.chosentipsters)):
-        #     self.chosentipsters = []
         generateladder(tips, fixture)
         position_per_round(self.chosentipsters)
         
     def margin(self):
-        # if not(hasattr(MyTableWidget, self.chosentipsters)):
-        #     self.chosentipsters = []
         generateladder(tips, fixture)
         margin_per_round(self.chosentipsters)
         
     def WhatIfLadder(self):
-        plotwhatifladder(whatifscore, self.tipsterwhatif.currentText())
-
-    # def ladderposbyrank(self):
-    #     if self.w is None:
-    #         self.w = LadderWindow()
-    #         self.w.show()
-            
-    #     else:
-    #         self.w.close()
-    #         self.w = None
+        if self.realnamebox.isChecked():
+            name_input_whatif = dict_names_user[self.tipsterwhatif_realname.currentText()]
+        else:
+            name_input_whatif = str(self.tipsterwhatif.currentText())
         
-    # def ladderposbymarg(self):
-    #     if self.w is None:
-    #         self.w = MarginWindow()
-    #         self.w.show()
-            
-    #     else:
-    #         self.w.close()
-    #         self.w = None
+        plotwhatifladder(whatifscore, name_input_whatif)
+
     
     def tipsterselected(self, s):
         print()
@@ -989,12 +1038,30 @@ class MyTableWidget(QWidget):
         
     def locselected(self, s):
         print()
+        
+    def realnames_pushed(self):
+        if self.realnamebox.isChecked():
+            self.tipstercombobox_realname.setVisible(True)
+            self.tipstercombobox.setVisible(False)
+            
+            self.tipsterwhatif_realname.setVisible(True)
+            self.tipsterwhatif.setVisible(False)
+        else:
+            self.tipstercombobox_realname.setVisible(False)
+            self.tipstercombobox.setVisible(True)
+            
+            self.tipsterwhatif_realname.setVisible(False)
+            self.tipsterwhatif.setVisible(True)
+        return()
 
     def button_pushed(self):
-        # print(str(self.loccombobox.currentText()))
-        t, y = rundata(str(self.loccombobox.currentText()))
+        t, y = rundata(str(self.loccombobox.currentText()))       
         if self.radiobutton2.isChecked():
-            plotbar(t, teams, teamshort, tipstername, str(self.loccombobox.currentText()), str(self.tipstercombobox.currentText()), self.checkbox.isChecked())
+            if self.realnamebox.isChecked():
+                name_input = dict_names_user[self.tipstercombobox_realname.currentText()]
+            else:
+                name_input = str(self.tipstercombobox.currentText())
+            plotbar(t, teams, teamshort, tipstername, str(self.loccombobox.currentText()), name_input, self.checkbox.isChecked())
         else:
             plotbar(t, teams, teamshort, tipstername, str(self.loccombobox.currentText()), str(self.teamcombobox.currentText()), self.checkbox.isChecked())
 
@@ -1003,127 +1070,36 @@ class MyTableWidget(QWidget):
     
     # Tipsters!
     def radiobutton1_pushed(self):
-        print()
         if self.radiobutton2.isChecked():
-            self.teamcombobox.setEnabled(False)
             self.teamcombobox.setDisabled(True)
-            
-            self.tipstercombobox.setEnabled(True)
             self.tipstercombobox.setDisabled(False)
 
         if self.radiobutton1.isChecked():
-            self.teamcombobox.setEnabled(True)
             self.teamcombobox.setDisabled(False)
-            
-            self.tipstercombobox.setEnabled(False)
             self.tipstercombobox.setDisabled(True)
-        #return(rb1)
+        
+        self.teamcombobox.currentTextChanged.connect(self.teamselected)
+        self.tipstercombobox.currentTextChanged.connect(self.tipsterselected)
+
+        return()
         
     # Teams!
     def radiobutton2_pushed(self):
-        print()
         if self.radiobutton2.isChecked():
-            self.teamcombobox.setEnabled(False)
             self.teamcombobox.setDisabled(True)
-            
-            self.tipstercombobox.setEnabled(True)
             self.tipstercombobox.setDisabled(False)
 
         if self.radiobutton1.isChecked():
-            self.teamcombobox.setEnabled(True)
             self.teamcombobox.setDisabled(False)
-            
-            self.tipstercombobox.setEnabled(False)
             self.tipstercombobox.setDisabled(True)
-
-
-
-# class MarginWindow(QWidget):
-#     """
-
-#     """
-#     def __init__(self):
-#         super().__init__()
-#         self.setGeometry(100, 100, 400, 400)
-#         layout = QVBoxLayout()
-#         self.setLayout(layout)
-
-#         self.label = QLabel("To see specific tipster margin worms, tick their respective box.\nNo ticked boxes will highlight everyone.")
-#         layout.addWidget(self.label)
-
-#         self.listCheckBox = tipstername
-#         self.myLabel = ['','','','','','','','','','','','','','','','','','','','','','','','']
-
-#         for i, v in enumerate(self.listCheckBox):
-#             self.listCheckBox[i] = QCheckBox(v)
-#             #self.listCheckBox[i].move(125, 20)
-#             #self.listCheckBox[i].setStyleSheet("QCheckBox::indicator { width: 10px; height: 2px;}")
-#             self.myLabel[i] = QLabel()
-#             layout.addWidget(self.listCheckBox[i], i, Qt.AlignmentFlag.AlignLeft)
-#             layout.addWidget(self.myLabel[i],    i, Qt.AlignmentFlag.AlignLeft)
             
-#             self.listCheckBox[i].stateChanged.connect(self.tipsterSelected)
-    
-#         self.launchmargbyrank = QPushButton('Go!', self)
-#         #self.launchposbyrank.move(5, 180)
-#         layout.addWidget(self.launchmargbyrank, Qt.AlignmentFlag.AlignRight)
-#         self.launchmargbyrank.clicked.connect(self.ladder)
-
-
-#     def tipsterSelected(self):
-#         self.chosentipsters = []
-#         for i in range(len(self.listCheckBox)):
-#             if (self.listCheckBox[i].isChecked()):
-#                 self.chosentipsters.append(self.listCheckBox[i].text())
-
-#     def ladder(self):
-#         generateladder(tips, fixture)
-#         margin_per_round(self.chosentipsters)
-
-# class LadderWindow(QWidget):
-#     """
-
-#     """
-#     def __init__(self):
-#         super().__init__()
-#         self.setGeometry(100, 100, 400, 400)
-#         layout = QVBoxLayout()
-#         self.setLayout(layout)
-
-#         self.label = QLabel("To see specific tipster margin worms, tick their respective box.\nNo ticked boxes will highlight everyone.")
-#         layout.addWidget(self.label)
-
-#         self.listCheckBox = tipstername
-#         self.myLabel = ['','','','','','','','','','','','','','','','','','','','','','','','']
-
-#         for i, v in enumerate(self.listCheckBox):
-#             self.listCheckBox[i] = QCheckBox(v)
-#             #self.listCheckBox[i].move(125, 20)
-#             #self.listCheckBox[i].setStyleSheet("QCheckBox::indicator { width: 10px; height: 2px;}")
-#             self.myLabel[i] = QLabel()
-#             layout.addWidget(self.listCheckBox[i], i, Qt.AlignmentFlag.AlignLeft)
-#             layout.addWidget(self.myLabel[i],    i, Qt.AlignmentFlag.AlignLeft)
-            
-#             self.listCheckBox[i].stateChanged.connect(self.tipsterSelected)
-    
-#         self.launchposbyrank = QPushButton('Go!', self)
-#         #self.launchposbyrank.move(5, 180)
-#         layout.addWidget(self.launchposbyrank, Qt.AlignmentFlag.AlignRight)
-#         self.launchposbyrank.clicked.connect(self.ladder)
-
-
-#     def tipsterSelected(self):
-#         self.chosentipsters = []
-#         for i in range(len(self.listCheckBox)):
-#             if (self.listCheckBox[i].isChecked()):
-#                 self.chosentipsters.append(self.listCheckBox[i].text())
-
-#     def ladder(self):
-#         generateladder(tips, fixture)
-#         position_per_round(self.chosentipsters)
+        self.teamcombobox.currentTextChanged.connect(self.teamselected)
+        self.tipstercombobox.currentTextChanged.connect(self.tipsterselected)
+        return()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
+    qdarktheme.setup_theme()
     window = MainWindow()
     sys.exit(app.exec())
 
