@@ -21,7 +21,7 @@ from PyQt6.QtCore import QSize, Qt
 from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QCheckBox, QGridLayout, QWidget, QVBoxLayout, QLineEdit, QLabel, QComboBox, QRadioButton, QButtonGroup, QTabWidget
 sns.set()
 
-tips, fixture = loaddf('.')
+tips, fixture = loaddf('.\\')
 tipstername = fixture.columns[7:].tolist()
 teamshort = ['ADL','BRIS','CARL','COL','ESS','FRE','GWS','GEEL','GCS','HAW','MEL','NTH','PORT','RICH','STK','SYD','WCE','WB']
 teams = sorted(list(fixture['Home Team'].unique()))
@@ -448,10 +448,6 @@ class MyTableWidget(QWidget):
         super(QWidget, self).__init__(parent)
         self.layout = QVBoxLayout(self)
     
-        # # create a grid layout
-        # layout = QVBoxLayout()
-        # self.setLayout(layout)
-    
         # Initialize tab screen
         self.tabs = QTabWidget()
         self.tab1 = QWidget()
@@ -872,6 +868,7 @@ class MyTableWidget(QWidget):
         self.tab4.layout.addWidget(self.tipsterwhatif)
         self.tab4.layout.addWidget(self.tipsterwhatif_realname)
         self.tab4.layout.addWidget(self.runwhatif)
+        
         self.tab4.setLayout(self.tab4.layout)
         self.layout.addWidget(self.tabs)
         self.setLayout(self.layout)
@@ -1045,11 +1042,13 @@ class MyTableWidget(QWidget):
         if self.radiobutton2.isChecked():
             self.teamcombobox.setDisabled(True)
             self.tipstercombobox.setDisabled(False)
+            self.tipstercombobox_realname.setDisabled(False)
 
         if self.radiobutton1.isChecked():
             self.teamcombobox.setDisabled(False)
             self.tipstercombobox.setDisabled(True)
-        
+            self.tipstercombobox_realname.setDisabled(True)
+
         self.teamcombobox.currentTextChanged.connect(self.teamselected)
         self.tipstercombobox.currentTextChanged.connect(self.tipsterselected)
 

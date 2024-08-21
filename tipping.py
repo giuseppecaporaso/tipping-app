@@ -21,7 +21,7 @@ import seaborn as sns
 sns.set()
 
 # Load in all the excel files, there should be one per round, and the spreadsheet that records who tipped what. 
-tips, fixture = loaddf('.')
+tips, fixture = loaddf('.\\')
 
 # Initialise key variables
 
