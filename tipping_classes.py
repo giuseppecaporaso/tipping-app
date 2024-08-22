@@ -16,7 +16,7 @@ from tipping import *
 import seaborn as sns
 import itertools
 # from tkinter import *
-import qdarktheme
+# import qdarktheme
 from PyQt6.QtCore import QSize, Qt
 from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QCheckBox, QGridLayout, QWidget, QVBoxLayout, QLineEdit, QLabel, QComboBox, QRadioButton, QButtonGroup, QTabWidget
 sns.set()
@@ -1174,7 +1174,7 @@ class MyTableWidget(QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    qdarktheme.setup_theme()
+    # qdarktheme.setup_theme()
     window = MainWindow()
     sys.exit(app.exec())
 
