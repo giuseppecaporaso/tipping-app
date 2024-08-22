@@ -1,9 +1,7 @@
-REM conda create --name py311
+@echo off
 :: Check for Python Installation
 python --version 2>NUL
 if errorlevel 1 goto errorNoPython
-
-REM FOR /F "tokens=*" %%g IN ('where python.exe') do (SET VAR=%%g)
 
 :: Python installed.
 REM pip install --target %%g numpy
