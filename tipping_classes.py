@@ -967,10 +967,28 @@ class MyTableWidget(QWidget):
 
     def ladder(self):
         generateladder(tips, fixture)
+        self.dummy = []
+        if self.realnamebox.isChecked():
+            for name in self.chosentipsters:
+                if name not in tipstername:
+                    self.dummy.append(dict_names_user[name])
+                else:
+                    self.dummy.append(name)
+        
+        self.chosentipsters = self.dummy
         position_per_round(self.chosentipsters, self.realnamebox.isChecked())
         
     def margin(self):
         generateladder(tips, fixture)
+        self.dummy = []
+        if self.realnamebox.isChecked():
+            for name in self.chosentipsters:
+                if name not in tipstername:
+                    self.dummy.append(dict_names_user[name])
+                else:
+                    self.dummy.append(name)
+        
+        self.chosentipsters = self.dummy
         margin_per_round(self.chosentipsters, self.realnamebox.isChecked())
         
     def WhatIfLadder(self):
@@ -999,12 +1017,113 @@ class MyTableWidget(QWidget):
             self.tipsterwhatif_realname.setVisible(True)
             self.tipsterwhatif.setVisible(False)
             
+            self.listCheckBox1.setText(dict_user_names[self.listCheckBox1.text()])
+            self.listCheckBox2.setText(dict_user_names[self.listCheckBox2.text()])
+            self.listCheckBox3.setText(dict_user_names[self.listCheckBox3.text()])
+            self.listCheckBox4.setText(dict_user_names[self.listCheckBox4.text()])
+            self.listCheckBox5.setText(dict_user_names[self.listCheckBox5.text()])
+            self.listCheckBox6.setText(dict_user_names[self.listCheckBox6.text()])
+            self.listCheckBox7.setText(dict_user_names[self.listCheckBox7.text()])
+            self.listCheckBox8.setText(dict_user_names[self.listCheckBox8.text()])
+            self.listCheckBox9.setText(dict_user_names[self.listCheckBox9.text()])
+            self.listCheckBox10.setText(dict_user_names[self.listCheckBox10.text()])
+            self.listCheckBox11.setText(dict_user_names[self.listCheckBox11.text()])
+            self.listCheckBox12.setText(dict_user_names[self.listCheckBox12.text()])
+            self.listCheckBox13.setText(dict_user_names[self.listCheckBox13.text()])
+            self.listCheckBox14.setText(dict_user_names[self.listCheckBox14.text()])
+            self.listCheckBox15.setText(dict_user_names[self.listCheckBox15.text()])
+            self.listCheckBox16.setText(dict_user_names[self.listCheckBox16.text()])
+            self.listCheckBox17.setText(dict_user_names[self.listCheckBox17.text()])
+            self.listCheckBox18.setText(dict_user_names[self.listCheckBox18.text()])
+            self.listCheckBox19.setText(dict_user_names[self.listCheckBox19.text()])
+            self.listCheckBox20.setText(dict_user_names[self.listCheckBox20.text()])
+            self.listCheckBox21.setText(dict_user_names[self.listCheckBox21.text()])
+            self.listCheckBox22.setText(dict_user_names[self.listCheckBox22.text()])
+            self.listCheckBox23.setText(dict_user_names[self.listCheckBox23.text()])
+            self.listCheckBox24.setText(dict_user_names[self.listCheckBox24.text()])
+            
+            self.alistCheckBox1.setText(dict_user_names[self.alistCheckBox1.text()])
+            self.alistCheckBox2.setText(dict_user_names[self.alistCheckBox2.text()])
+            self.alistCheckBox3.setText(dict_user_names[self.alistCheckBox3.text()])
+            self.alistCheckBox4.setText(dict_user_names[self.alistCheckBox4.text()])
+            self.alistCheckBox5.setText(dict_user_names[self.alistCheckBox5.text()])
+            self.alistCheckBox6.setText(dict_user_names[self.alistCheckBox6.text()])
+            self.alistCheckBox7.setText(dict_user_names[self.alistCheckBox7.text()])
+            self.alistCheckBox8.setText(dict_user_names[self.alistCheckBox8.text()])
+            self.alistCheckBox9.setText(dict_user_names[self.alistCheckBox9.text()])
+            self.alistCheckBox10.setText(dict_user_names[self.alistCheckBox10.text()])
+            self.alistCheckBox11.setText(dict_user_names[self.alistCheckBox11.text()])
+            self.alistCheckBox12.setText(dict_user_names[self.alistCheckBox12.text()])
+            self.alistCheckBox13.setText(dict_user_names[self.alistCheckBox13.text()])
+            self.alistCheckBox14.setText(dict_user_names[self.alistCheckBox14.text()])
+            self.alistCheckBox15.setText(dict_user_names[self.alistCheckBox15.text()])
+            self.alistCheckBox16.setText(dict_user_names[self.alistCheckBox16.text()])
+            self.alistCheckBox17.setText(dict_user_names[self.alistCheckBox17.text()])
+            self.alistCheckBox18.setText(dict_user_names[self.alistCheckBox18.text()])
+            self.alistCheckBox19.setText(dict_user_names[self.alistCheckBox19.text()])
+            self.alistCheckBox20.setText(dict_user_names[self.alistCheckBox20.text()])
+            self.alistCheckBox21.setText(dict_user_names[self.alistCheckBox21.text()])
+            self.alistCheckBox22.setText(dict_user_names[self.alistCheckBox22.text()])
+            self.alistCheckBox23.setText(dict_user_names[self.alistCheckBox23.text()])
+            self.alistCheckBox24.setText(dict_user_names[self.alistCheckBox24.text()])
+            
         else:
             self.tipstercombobox_realname.setVisible(False)
             self.tipstercombobox.setVisible(True)
             
             self.tipsterwhatif_realname.setVisible(False)
             self.tipsterwhatif.setVisible(True)
+
+            self.listCheckBox1.setText(dict_names_user[self.listCheckBox1.text()])
+            self.listCheckBox2.setText(dict_names_user[self.listCheckBox2.text()])
+            self.listCheckBox3.setText(dict_names_user[self.listCheckBox3.text()])
+            self.listCheckBox4.setText(dict_names_user[self.listCheckBox4.text()])
+            self.listCheckBox5.setText(dict_names_user[self.listCheckBox5.text()])
+            self.listCheckBox6.setText(dict_names_user[self.listCheckBox6.text()])
+            self.listCheckBox7.setText(dict_names_user[self.listCheckBox7.text()])
+            self.listCheckBox8.setText(dict_names_user[self.listCheckBox8.text()])
+            self.listCheckBox9.setText(dict_names_user[self.listCheckBox9.text()])
+            self.listCheckBox10.setText(dict_names_user[self.listCheckBox10.text()])
+            self.listCheckBox11.setText(dict_names_user[self.listCheckBox11.text()])
+            self.listCheckBox12.setText(dict_names_user[self.listCheckBox12.text()])
+            self.listCheckBox13.setText(dict_names_user[self.listCheckBox13.text()])
+            self.listCheckBox14.setText(dict_names_user[self.listCheckBox14.text()])
+            self.listCheckBox15.setText(dict_names_user[self.listCheckBox15.text()])
+            self.listCheckBox16.setText(dict_names_user[self.listCheckBox16.text()])
+            self.listCheckBox17.setText(dict_names_user[self.listCheckBox17.text()])
+            self.listCheckBox18.setText(dict_names_user[self.listCheckBox18.text()])
+            self.listCheckBox19.setText(dict_names_user[self.listCheckBox19.text()])
+            self.listCheckBox20.setText(dict_names_user[self.listCheckBox20.text()])
+            self.listCheckBox21.setText(dict_names_user[self.listCheckBox21.text()])
+            self.listCheckBox22.setText(dict_names_user[self.listCheckBox22.text()])
+            self.listCheckBox23.setText(dict_names_user[self.listCheckBox23.text()])
+            self.listCheckBox24.setText(dict_names_user[self.listCheckBox24.text()])
+            
+            self.alistCheckBox1.setText(dict_names_user[self.alistCheckBox1.text()])
+            self.alistCheckBox2.setText(dict_names_user[self.alistCheckBox2.text()])
+            self.alistCheckBox3.setText(dict_names_user[self.alistCheckBox3.text()])
+            self.alistCheckBox4.setText(dict_names_user[self.alistCheckBox4.text()])
+            self.alistCheckBox5.setText(dict_names_user[self.alistCheckBox5.text()])
+            self.alistCheckBox6.setText(dict_names_user[self.alistCheckBox6.text()])
+            self.alistCheckBox7.setText(dict_names_user[self.alistCheckBox7.text()])
+            self.alistCheckBox8.setText(dict_names_user[self.alistCheckBox8.text()])
+            self.alistCheckBox9.setText(dict_names_user[self.alistCheckBox9.text()])
+            self.alistCheckBox10.setText(dict_names_user[self.alistCheckBox10.text()])
+            self.alistCheckBox11.setText(dict_names_user[self.alistCheckBox11.text()])
+            self.alistCheckBox12.setText(dict_names_user[self.alistCheckBox12.text()])
+            self.alistCheckBox13.setText(dict_names_user[self.alistCheckBox13.text()])
+            self.alistCheckBox14.setText(dict_names_user[self.alistCheckBox14.text()])
+            self.alistCheckBox15.setText(dict_names_user[self.alistCheckBox15.text()])
+            self.alistCheckBox16.setText(dict_names_user[self.alistCheckBox16.text()])
+            self.alistCheckBox17.setText(dict_names_user[self.alistCheckBox17.text()])
+            self.alistCheckBox18.setText(dict_names_user[self.alistCheckBox18.text()])
+            self.alistCheckBox19.setText(dict_names_user[self.alistCheckBox19.text()])
+            self.alistCheckBox20.setText(dict_names_user[self.alistCheckBox20.text()])
+            self.alistCheckBox21.setText(dict_names_user[self.alistCheckBox21.text()])
+            self.alistCheckBox22.setText(dict_names_user[self.alistCheckBox22.text()])
+            self.alistCheckBox23.setText(dict_names_user[self.alistCheckBox23.text()])
+            self.alistCheckBox24.setText(dict_names_user[self.alistCheckBox24.text()])
+
 
         return()
 
