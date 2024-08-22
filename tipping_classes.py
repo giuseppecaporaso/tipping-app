@@ -26,33 +26,6 @@ tipstername = fixture.columns[7:].tolist()
 teamshort = ['ADL','BRIS','CARL','COL','ESS','FRE','GWS','GEEL','GCS','HAW','MEL','NTH','PORT','RICH','STK','SYD','WCE','WB']
 teams = sorted(list(fixture['Home Team'].unique()))
 
-dict_names_user = {
-    'Adam Slimming': 'Adam Slimming',
-    'Andrew Tasker': 'AndyT23',
-    'Anthony Corbo': 'Anthony Corbo',
-    'Aurizn Bot': 'Aurizn-AI-COE-bot',
-    'Jonathan Hedger': 'Benjamin Britten',
-    'Ben Slimming': 'BenSlimming',
-    'Andrew Curzons': 'CANT1053',
-    'Craig Keogh': 'Craig Keogh',
-    'Dan Gustainis': 'DanGusto',
-    'Giuseppe Caporaso': 'DemocracyManifestt',
-    'Mike Holmes': 'George/MikeH',
-    'James Knowles': 'GinbeysAndTs',
-    'Jerry Tang': 'jza_',
-    'Lee Blucher': 'Lee Blucher',
-    'Jordan Chapman': 'Master Chapman',
-    'Pelle Coscia': 'Pelle CT',
-    'Tait Reid': 'PoTaito',
-    'Peter Amerl': 'PVAnotC',
-    'Riley Galbraith': 'Riley Galbraith',
-    'Sarah Amadio': 'Sarah Amadio',
-    'Ben Schultz': 'Schulta',
-    'Drew Dwyer': 'Spirit Phoenix',
-    'Tammy Oldfield': 'Tamko',
-    'Brad Lukins': 'Wonderbread',  
-    }
-
 whatifscore = pd.DataFrame()
 whatifscore['Team'] = teams
 for name in tipstername:
@@ -347,7 +320,7 @@ def rundata(location):
 
 # 2nd to last variable can be either a tipster name or team name
 # The last variable is the option to break down the tips.
-def plotbar(t, teams, teamshort, tipstername, location, variable, detailed):
+def plotbar(t, teams, teamshort, tipstername, location, variable, detailed, full_name_flag):
     listcorrect, listwrong, listcorrect2, listwrong2, listtotal, totalcorrectpertipster, totalwrongpertipster, totalpertipster = [[] for _ in range(8)]
     # Some check to see if its a team or tipster
     barwidth = 0.25
@@ -401,10 +374,10 @@ def plotbar(t, teams, teamshort, tipstername, location, variable, detailed):
 
 
     if detailed:
-        plt.bar(x_ax-0.5*barwidth, listcorrect, barwidth, color='blue', label="Tipped and team won", align='center', edgecolor='black')
-        plt.bar(x_ax+0.5*barwidth, listcorrect2, barwidth, color='deepskyblue', label="Didn't tip and team lost/drew", align='center', edgecolor='black')
-        plt.bar(x_ax+0.5*barwidth, listwrong, barwidth, color='pink', label="Didn't tip and team won", align='center', edgecolor='black')
-        plt.bar(x_ax-0.5*barwidth, listwrong2, barwidth, color='red', label="Tipped and team lost/drew", align='center', edgecolor='black')
+        plt.bar(x_ax-0.5*barwidth, listcorrect, barwidth, color='blue', label="Tipped and team won/drew", align='center', edgecolor='black')
+        plt.bar(x_ax+0.5*barwidth, listcorrect2, barwidth, color='deepskyblue', label="Didn't tip and team lost", align='center', edgecolor='black')
+        plt.bar(x_ax+0.5*barwidth, listwrong, barwidth, color='pink', label="Didn't tip and team won/drew", align='center', edgecolor='black')
+        plt.bar(x_ax-0.5*barwidth, listwrong2, barwidth, color='red', label="Tipped and team lost", align='center', edgecolor='black')
         
     else:
         plt.bar(x_ax-0.5*barwidth, listcorrect, label="Correctly tipped \n(inc. not tipping the defeated team)")
@@ -420,8 +393,16 @@ def plotbar(t, teams, teamshort, tipstername, location, variable, detailed):
     
     elif variable in teams:
         if detailed: plt.hlines(0, xmin=0, xmax=len(tipstername)-1, color='black', linewidth=1)
-        tipstername = rearrange(tipstername, totalidx)
-        plt.xticks(x_ax, tipstername, rotation=90, fontsize=8)
+        if full_name_flag:
+            fullname = []
+            for name in tipstername:
+                fullname.append(dict_user_names[name])
+      
+            fullname = rearrange(fullname, totalidx)
+            plt.xticks(x_ax, fullname, rotation=90, fontsize=8)
+        else:
+            tipstername = rearrange(tipstername, totalidx)
+            plt.xticks(x_ax, tipstername, rotation=90, fontsize=8)
         # plt.ylabel('Score', fontsize=12)
 
     plt.locator_params(axis='y', integer=True, tight=True)
@@ -769,10 +750,12 @@ class MyTableWidget(QWidget):
     
         self.launchposbyrank = QPushButton('Go!', self)
         self.launchposbyrank.move(5, 180)
+        self.launchposbyrank.resize(150, 25)
         self.launchposbyrank.clicked.connect(self.ladder)
         
         self.launchposbymarg = QPushButton('Go!', self)
         self.launchposbymarg.move(5, 180)
+        self.launchposbymarg.resize(150, 25)
         self.launchposbymarg.clicked.connect(self.margin)
         
         # Execute Button to run what if table
@@ -787,6 +770,8 @@ class MyTableWidget(QWidget):
         # Tab 1
 
         self.tab1.layout = QVBoxLayout(self)
+        self.tab1.layout.addWidget(self.radiobutton1)#, Qt.AlignmentFlag.AlignLeft)
+        self.tab1.layout.addWidget(self.radiobutton2)#, Qt.AlignmentFlag.AlignLeft)
         self.tab1.layout.addWidget(self.nameLabel)#, Qt.AlignmentFlag.AlignLeft)
         self.tab1.layout.addWidget(self.tipstercombobox)#, Qt.AlignmentFlag.AlignLeft)
         self.tab1.layout.addWidget(self.tipstercombobox_realname)#, Qt.AlignmentFlag.AlignLeft)
@@ -794,8 +779,6 @@ class MyTableWidget(QWidget):
         self.tab1.layout.addWidget(self.teamcombobox)#, Qt.AlignmentFlag.AlignLeft)
         self.tab1.layout.addWidget(self.locLabel)#, Qt.AlignmentFlag.AlignLeft)
         self.tab1.layout.addWidget(self.loccombobox)#, Qt.AlignmentFlag.AlignLeft)
-        self.tab1.layout.addWidget(self.radiobutton1)#, Qt.AlignmentFlag.AlignLeft)
-        self.tab1.layout.addWidget(self.radiobutton2)#, Qt.AlignmentFlag.AlignLeft)
         self.tab1.layout.addWidget(self.checkbox)#, Qt.AlignmentFlag.AlignCenter)
         self.tab1.layout.addWidget(self.realnamebox)#, Qt.AlignmentFlag.AlignLeft)
         self.tab1.layout.addWidget(self.buttonrun)#, Qt.AlignmentFlag.AlignLeft)
@@ -829,7 +812,7 @@ class MyTableWidget(QWidget):
         self.tab2.layout.addWidget(self.listCheckBox22, 10, 1, Qt.AlignmentFlag.AlignLeft)
         self.tab2.layout.addWidget(self.listCheckBox23, 11, 1, Qt.AlignmentFlag.AlignLeft)
         self.tab2.layout.addWidget(self.listCheckBox24, 12, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.launchposbyrank, 13, 0, Qt.AlignmentFlag.AlignCenter)
+        self.tab2.layout.addWidget(self.launchposbyrank, 13, 0, Qt.AlignmentFlag.AlignLeft)
         self.tab2.setLayout(self.tab2.layout)
         
         # Tab 3
@@ -860,7 +843,7 @@ class MyTableWidget(QWidget):
         self.tab3.layout.addWidget(self.alistCheckBox22, 10, 1, Qt.AlignmentFlag.AlignLeft)
         self.tab3.layout.addWidget(self.alistCheckBox23, 11, 1, Qt.AlignmentFlag.AlignLeft)
         self.tab3.layout.addWidget(self.alistCheckBox24, 12, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.launchposbymarg, 13, 0, Qt.AlignmentFlag.AlignCenter)
+        self.tab3.layout.addWidget(self.launchposbymarg, 13, 0, Qt.AlignmentFlag.AlignLeft)
         self.tab3.setLayout(self.tab3.layout)
         
         self.tab4.layout = QVBoxLayout(self)
@@ -984,11 +967,11 @@ class MyTableWidget(QWidget):
 
     def ladder(self):
         generateladder(tips, fixture)
-        position_per_round(self.chosentipsters)
+        position_per_round(self.chosentipsters, self.realnamebox.isChecked())
         
     def margin(self):
         generateladder(tips, fixture)
-        margin_per_round(self.chosentipsters)
+        margin_per_round(self.chosentipsters, self.realnamebox.isChecked())
         
     def WhatIfLadder(self):
         if self.realnamebox.isChecked():
@@ -1015,12 +998,14 @@ class MyTableWidget(QWidget):
             
             self.tipsterwhatif_realname.setVisible(True)
             self.tipsterwhatif.setVisible(False)
+            
         else:
             self.tipstercombobox_realname.setVisible(False)
             self.tipstercombobox.setVisible(True)
             
             self.tipsterwhatif_realname.setVisible(False)
             self.tipsterwhatif.setVisible(True)
+
         return()
 
     def button_pushed(self):
@@ -1030,9 +1015,9 @@ class MyTableWidget(QWidget):
                 name_input = dict_names_user[self.tipstercombobox_realname.currentText()]
             else:
                 name_input = str(self.tipstercombobox.currentText())
-            plotbar(t, teams, teamshort, tipstername, str(self.loccombobox.currentText()), name_input, self.checkbox.isChecked())
+            plotbar(t, teams, teamshort, tipstername, str(self.loccombobox.currentText()), name_input, self.checkbox.isChecked(), self.realnamebox.isChecked())
         else:
-            plotbar(t, teams, teamshort, tipstername, str(self.loccombobox.currentText()), str(self.teamcombobox.currentText()), self.checkbox.isChecked())
+            plotbar(t, teams, teamshort, tipstername, str(self.loccombobox.currentText()), str(self.teamcombobox.currentText()), self.checkbox.isChecked(), self.realnamebox.isChecked())
 
     def state_changed(self, int):
         print()

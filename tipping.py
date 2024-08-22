@@ -261,15 +261,18 @@ def propsheet(team, propperteam, totalperteam, correct, teamsdf):
     bar_settings(newindex, 'Tipsters', x_ax)
 
 
-def margin_per_round(tipster, no_users=int(tips.nunique()["NAME"])):
+def margin_per_round(tipster, full_name_flag, no_users=int(tips.nunique()["NAME"])):
     rounds = np.arange(0,int(len(tips)/no_users))
     cm_1 = plt.get_cmap('gist_ncar_r')
     # Does the username exist? 
     if not(bool(tipster)) or '' in tipster:
         plt.figure(figsize=(12, 8))
         margin_per_user, margin_profile = calc_margin(tips, rounds, no_users)
-        for user in range(no_users):    
-            plt.plot(rounds, margin_per_user[user], label=margin_profile[-1]['NAME'].iloc[user], linewidth=4, color=cm_1(user*10+15))   
+        for user in range(no_users):  
+            if full_name_flag:
+                plt.plot(rounds, margin_per_user[user], label=dict_user_names[margin_profile[-1]['NAME'].iloc[user]], linewidth=4, color=cm_1(user*10+15)) 
+            else:
+                plt.plot(rounds, margin_per_user[user], label=margin_profile[-1]['NAME'].iloc[user], linewidth=4, color=cm_1(user*10+15))
             
     else:       
         margin_per_user, margin_profile = calc_margin(tips, rounds, no_users)
@@ -281,15 +284,22 @@ def margin_per_round(tipster, no_users=int(tips.nunique()["NAME"])):
             # of rank in the most recent round.
             if (user-no_users) in save_tipster:
                 # Again, -25 brings us to the most recent round which is ordered.
-                plt.plot(rounds, margin_per_user[user], label=margin_profile[-1]['NAME'].iloc[user], linewidth=4, color=cm_1(user*10+15))   
+                if full_name_flag:
+                    plt.plot(rounds, margin_per_user[user], label=dict_user_names[margin_profile[-1]['NAME'].iloc[user]], linewidth=4, color=cm_1(user*10+15))   
+                else:
+                    plt.plot(rounds, margin_per_user[user], label=margin_profile[-1]['NAME'].iloc[user], linewidth=4, color=cm_1(user*10+15))   
+
                 
             else:
                 # Everyone else appears grey
-                plt.plot(rounds, margin_per_user[user], label=margin_profile[-1]['NAME'].iloc[user], linewidth=1, color='grey')              
-        
+                if full_name_flag:
+                    plt.plot(rounds, margin_per_user[user], label=dict_user_names[margin_profile[-1]['NAME'].iloc[user]], linewidth=1, color='grey')  
+                else:
+                    plt.plot(rounds, margin_per_user[user], label=margin_profile[-1]['NAME'].iloc[user], linewidth=1, color='grey')  
+
     plot_settings(no_users, rounds, 1)
         
-def position_per_round(tipster, no_users=int(tips.nunique()["NAME"])):
+def position_per_round(tipster, full_name_flag, no_users=int(tips.nunique()["NAME"])):
     rounds = np.arange(0,int(len(tips)/no_users))
     cm_1 = plt.get_cmap('gist_ncar_r')
     rank_profile = []
@@ -300,7 +310,11 @@ def position_per_round(tipster, no_users=int(tips.nunique()["NAME"])):
         for user in range(0, no_users):
             # This line extracts a tipsters score for each round, along with an index indicating their final position after each round. Very handy!
             rank_profile.append(tips[tips['NAME'] == tips.iloc[user-no_users][1]]['RANK'])
-            plt.plot(rounds, rank_profile[user], label=tips.iloc[user-no_users][1], linewidth=4, color=cm_1(user*10+15))                
+            if full_name_flag:
+                plt.plot(rounds, rank_profile[user], label=dict_user_names[tips.iloc[user-no_users][1]], linewidth=4, color=cm_1(user*10+15)) 
+            else:
+                plt.plot(rounds, rank_profile[user], label=tips.iloc[user-no_users][1], linewidth=4, color=cm_1(user*10+15))                
+
 
     else:
         save_tipster = list_input(tipster, tips, no_users)
@@ -311,11 +325,18 @@ def position_per_round(tipster, no_users=int(tips.nunique()["NAME"])):
             # of rank in the most recent round.
             if (user-no_users) in save_tipster:
                 # Again, -25 brings us to the most recent round which is ordered.
-                plt.plot(rounds, rank_profile[user], label=tips.iloc[user-no_users][1], linewidth=4, color=cm_1(user*10+15))
-                
+                if full_name_flag:
+                    plt.plot(rounds, rank_profile[user], label=dict_user_names[tips.iloc[user-no_users][1]], linewidth=4, color=cm_1(user*10+15))
+                else:
+                    plt.plot(rounds, rank_profile[user], label=tips.iloc[user-no_users][1], linewidth=4, color=cm_1(user*10+15))
+
             else:
                 # Everyone else appears grey
-                plt.plot(rounds, rank_profile[user], label=tips.iloc[user-no_users][1], linewidth=1, color='grey')
+                if full_name_flag:
+                    plt.plot(rounds, rank_profile[user], label=dict_user_names[tips.iloc[user-no_users][1]], linewidth=1, color='grey')
+                else:
+                    plt.plot(rounds, rank_profile[user], label=tips.iloc[user-no_users][1], linewidth=1, color='grey')
+
     # Last input is whether its margin (1) or position (0) for title purposes.
     plot_settings(no_users, rounds, 0)
 

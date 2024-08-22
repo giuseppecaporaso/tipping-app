@@ -11,6 +11,60 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+dict_names_user = {
+    'Adam Slimming': 'Adam Slimming',
+    'Andrew Tasker': 'AndyT23',
+    'Anthony Corbo': 'Anthony Corbo',
+    'Aurizn Bot': 'Aurizn-AI-COE-bot',
+    'Jonathan Hedger': 'Benjamin Britten',
+    'Ben Slimming': 'BenSlimming',
+    'Andrew Curzons': 'CANT1053',
+    'Craig Keogh': 'Craig Keogh',
+    'Dan Gustainis': 'DanGusto',
+    'Giuseppe Caporaso': 'DemocracyManifestt',
+    'Mike Holmes': 'George/MikeH',
+    'James Knowles': 'GinbeysAndTs',
+    'Jerry Tang': 'jza_',
+    'Lee Blucher': 'Lee Blucher',
+    'Jordan Chapman': 'Master Chapman',
+    'Pelle Coscia': 'Pelle CT',
+    'Tait Reid': 'PoTaito',
+    'Peter Amerl': 'PVAnotC',
+    'Riley Galbraith': 'Riley Galbraith',
+    'Sarah Amadio': 'Sarah Amadio',
+    'Ben Schultz': 'Schulta',
+    'Drew Dwyer': 'Spirit Phoenix',
+    'Tammy Oldfield': 'Tamko',
+    'Brad Lukins': 'Wonderbread',  
+    }
+
+dict_user_names = {
+    'Adam Slimming': 'Adam Slimming',
+    'AndyT23': 'Andrew Tasker',
+    'Anthony Corbo': 'Anthony Corbo',
+    'Aurizn-AI-COE-bot': 'Aurizn Bot',
+    'Benjamin Britten': 'Jonathan Hedger',
+    'BenSlimming': 'Ben Slimming',
+    'CANT1053': 'Andrew Curzons',
+    'Craig Keogh': 'Craig Keogh',
+    'DanGusto': 'Dan Gustainis',
+    'DemocracyManifestt': 'Giuseppe Caporaso',
+    'George/MikeH': 'Mike Holmes',
+    'GinbeysAndTs': 'James Knowles',
+    'jza_': 'Jerry Tang',
+    'Lee Blucher': 'Lee Blucher',
+    'Master Chapman': 'Jordan Chapman',
+    'Pelle CT': 'Pelle Coscia',
+    'PoTaito': 'Tait Reid',
+    'PVAnotC': 'Peter Amerl',
+    'Riley Galbraith': 'Riley Galbraith',
+    'Sarah Amadio': 'Sarah Amadio',
+    'Schulta': 'Ben Schultz',
+    'Spirit Phoenix': 'Drew Dwyer',
+    'Tamko': 'Tammy Oldfield',
+    'Wonderbread': 'Brad Lukins',  
+    }
+
 def loaddf(directory):
     tips = pd.DataFrame()
     fixture = pd.DataFrame()
