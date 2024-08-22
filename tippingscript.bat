@@ -21,8 +21,9 @@ python3 -m pip install PyQt6
 pip install pyqtdarktheme
 
 REM Update path below to python.exe if needed.
-FOR /F "tokens=*" %%g IN ('where python') do (SET VAR=%%g)
-%%g tipping_classes.py %*
+FOR /f %%p in ('where python') do SET PYTHONPATH=%%p
+ECHO %PYTHONPATH%
+%PYTHONPATH% tipping_classes.py %*
 
 :: Exit batch file once done
 goto:eof
