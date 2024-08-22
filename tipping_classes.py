@@ -555,197 +555,197 @@ class MyTableWidget(QWidget):
         self.label3 = QLabel("What would the ladder look like if every tip you made was correct?\n(Missed tips will be counted as draws.)")
         
         
-        self.listCheckBox1 = QCheckBox(tipstername[0], self)
-        self.listCheckBox1.setChecked(False)
-        self.listCheckBox1.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox1 = QCheckBox(tipstername[0], self)
+        self.tipsterposCheckBox1.setChecked(False)
+        self.tipsterposCheckBox1.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox2 = QCheckBox(tipstername[1], self)
-        self.listCheckBox2.setChecked(False)
-        self.listCheckBox2.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox2 = QCheckBox(tipstername[1], self)
+        self.tipsterposCheckBox2.setChecked(False)
+        self.tipsterposCheckBox2.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox3 = QCheckBox(tipstername[2], self)
-        self.listCheckBox3.setChecked(False)
-        self.listCheckBox3.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox3 = QCheckBox(tipstername[2], self)
+        self.tipsterposCheckBox3.setChecked(False)
+        self.tipsterposCheckBox3.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox4 = QCheckBox(tipstername[3], self)
-        self.listCheckBox4.setChecked(False)
-        self.listCheckBox4.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox4 = QCheckBox(tipstername[3], self)
+        self.tipsterposCheckBox4.setChecked(False)
+        self.tipsterposCheckBox4.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox5 = QCheckBox(tipstername[4], self)
-        self.listCheckBox5.setChecked(False)
-        self.listCheckBox5.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox5 = QCheckBox(tipstername[4], self)
+        self.tipsterposCheckBox5.setChecked(False)
+        self.tipsterposCheckBox5.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox6 = QCheckBox(tipstername[5], self)
-        self.listCheckBox6.setChecked(False)
-        self.listCheckBox6.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox6 = QCheckBox(tipstername[5], self)
+        self.tipsterposCheckBox6.setChecked(False)
+        self.tipsterposCheckBox6.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox7 = QCheckBox(tipstername[6], self)
-        self.listCheckBox7.setChecked(False)
-        self.listCheckBox7.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox7 = QCheckBox(tipstername[6], self)
+        self.tipsterposCheckBox7.setChecked(False)
+        self.tipsterposCheckBox7.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox8 = QCheckBox(tipstername[7], self)
-        self.listCheckBox8.setChecked(False)
-        self.listCheckBox8.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox8 = QCheckBox(tipstername[7], self)
+        self.tipsterposCheckBox8.setChecked(False)
+        self.tipsterposCheckBox8.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox9 = QCheckBox(tipstername[8], self)
-        self.listCheckBox9.setChecked(False)
-        self.listCheckBox9.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox9 = QCheckBox(tipstername[8], self)
+        self.tipsterposCheckBox9.setChecked(False)
+        self.tipsterposCheckBox9.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox10 = QCheckBox(tipstername[9], self)
-        self.listCheckBox10.setChecked(False)
-        self.listCheckBox10.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox10 = QCheckBox(tipstername[9], self)
+        self.tipsterposCheckBox10.setChecked(False)
+        self.tipsterposCheckBox10.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox11 = QCheckBox(tipstername[10], self)
-        self.listCheckBox11.setChecked(False)
-        self.listCheckBox11.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox11 = QCheckBox(tipstername[10], self)
+        self.tipsterposCheckBox11.setChecked(False)
+        self.tipsterposCheckBox11.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox12 = QCheckBox(tipstername[11], self)
-        self.listCheckBox12.setChecked(False)
-        self.listCheckBox12.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox12 = QCheckBox(tipstername[11], self)
+        self.tipsterposCheckBox12.setChecked(False)
+        self.tipsterposCheckBox12.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox13 = QCheckBox(tipstername[12], self)
-        self.listCheckBox13.setChecked(False)
-        self.listCheckBox13.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox13 = QCheckBox(tipstername[12], self)
+        self.tipsterposCheckBox13.setChecked(False)
+        self.tipsterposCheckBox13.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox14 = QCheckBox(tipstername[13], self)
-        self.listCheckBox14.setChecked(False)
-        self.listCheckBox14.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox14 = QCheckBox(tipstername[13], self)
+        self.tipsterposCheckBox14.setChecked(False)
+        self.tipsterposCheckBox14.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox15 = QCheckBox(tipstername[14], self)
-        self.listCheckBox15.setChecked(False)
-        self.listCheckBox15.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox15 = QCheckBox(tipstername[14], self)
+        self.tipsterposCheckBox15.setChecked(False)
+        self.tipsterposCheckBox15.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox16 = QCheckBox(tipstername[15], self)
-        self.listCheckBox16.setChecked(False)
-        self.listCheckBox16.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox16 = QCheckBox(tipstername[15], self)
+        self.tipsterposCheckBox16.setChecked(False)
+        self.tipsterposCheckBox16.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox17 = QCheckBox(tipstername[16], self)
-        self.listCheckBox17.setChecked(False)
-        self.listCheckBox17.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox17 = QCheckBox(tipstername[16], self)
+        self.tipsterposCheckBox17.setChecked(False)
+        self.tipsterposCheckBox17.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox18 = QCheckBox(tipstername[17], self)
-        self.listCheckBox18.setChecked(False)
-        self.listCheckBox18.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox18 = QCheckBox(tipstername[17], self)
+        self.tipsterposCheckBox18.setChecked(False)
+        self.tipsterposCheckBox18.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox19 = QCheckBox(tipstername[18], self)
-        self.listCheckBox19.setChecked(False)
-        self.listCheckBox19.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox19 = QCheckBox(tipstername[18], self)
+        self.tipsterposCheckBox19.setChecked(False)
+        self.tipsterposCheckBox19.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox20 = QCheckBox(tipstername[19], self)
-        self.listCheckBox20.setChecked(False)
-        self.listCheckBox20.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox20 = QCheckBox(tipstername[19], self)
+        self.tipsterposCheckBox20.setChecked(False)
+        self.tipsterposCheckBox20.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox21 = QCheckBox(tipstername[20], self)
-        self.listCheckBox21.setChecked(False)
-        self.listCheckBox21.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox21 = QCheckBox(tipstername[20], self)
+        self.tipsterposCheckBox21.setChecked(False)
+        self.tipsterposCheckBox21.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox22 = QCheckBox(tipstername[21], self)
-        self.listCheckBox22.setChecked(False)
-        self.listCheckBox22.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox22 = QCheckBox(tipstername[21], self)
+        self.tipsterposCheckBox22.setChecked(False)
+        self.tipsterposCheckBox22.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox23 = QCheckBox(tipstername[22], self)
-        self.listCheckBox23.setChecked(False)
-        self.listCheckBox23.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox23 = QCheckBox(tipstername[22], self)
+        self.tipsterposCheckBox23.setChecked(False)
+        self.tipsterposCheckBox23.stateChanged.connect(self.tipsterSelected)
         
-        self.listCheckBox24 = QCheckBox(tipstername[23], self)
-        self.listCheckBox24.setChecked(False)
-        self.listCheckBox24.stateChanged.connect(self.tipsterSelected)
+        self.tipsterposCheckBox24 = QCheckBox(tipstername[23], self)
+        self.tipsterposCheckBox24.setChecked(False)
+        self.tipsterposCheckBox24.stateChanged.connect(self.tipsterSelected)
         
-        self.alistCheckBox1 = QCheckBox(tipstername[0], self)
-        self.alistCheckBox1.setChecked(False)
-        self.alistCheckBox1.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox1 = QCheckBox(tipstername[0], self)
+        self.tipstermargCheckBox1.setChecked(False)
+        self.tipstermargCheckBox1.stateChanged.connect(self.tipsterSelectedmargin)
         
-        self.alistCheckBox2 = QCheckBox(tipstername[1], self)
-        self.alistCheckBox2.setChecked(False)
-        self.alistCheckBox2.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox2 = QCheckBox(tipstername[1], self)
+        self.tipstermargCheckBox2.setChecked(False)
+        self.tipstermargCheckBox2.stateChanged.connect(self.tipsterSelectedmargin)
         
-        self.alistCheckBox3 = QCheckBox(tipstername[2], self)
-        self.alistCheckBox3.setChecked(False)
-        self.alistCheckBox3.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox3 = QCheckBox(tipstername[2], self)
+        self.tipstermargCheckBox3.setChecked(False)
+        self.tipstermargCheckBox3.stateChanged.connect(self.tipsterSelectedmargin)
         
-        self.alistCheckBox4 = QCheckBox(tipstername[3], self)
-        self.alistCheckBox4.setChecked(False)
-        self.alistCheckBox4.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox4 = QCheckBox(tipstername[3], self)
+        self.tipstermargCheckBox4.setChecked(False)
+        self.tipstermargCheckBox4.stateChanged.connect(self.tipsterSelectedmargin)
         
-        self.alistCheckBox5 = QCheckBox(tipstername[4], self)
-        self.alistCheckBox5.setChecked(False)
-        self.alistCheckBox5.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox5 = QCheckBox(tipstername[4], self)
+        self.tipstermargCheckBox5.setChecked(False)
+        self.tipstermargCheckBox5.stateChanged.connect(self.tipsterSelectedmargin)
         
-        self.alistCheckBox6 = QCheckBox(tipstername[5], self)
-        self.alistCheckBox6.setChecked(False)
-        self.alistCheckBox6.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox6 = QCheckBox(tipstername[5], self)
+        self.tipstermargCheckBox6.setChecked(False)
+        self.tipstermargCheckBox6.stateChanged.connect(self.tipsterSelectedmargin)
         
-        self.alistCheckBox7 = QCheckBox(tipstername[6], self)
-        self.alistCheckBox7.setChecked(False)
-        self.alistCheckBox7.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox7 = QCheckBox(tipstername[6], self)
+        self.tipstermargCheckBox7.setChecked(False)
+        self.tipstermargCheckBox7.stateChanged.connect(self.tipsterSelectedmargin)
         
-        self.alistCheckBox8 = QCheckBox(tipstername[7], self)
-        self.alistCheckBox8.setChecked(False)
-        self.alistCheckBox8.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox8 = QCheckBox(tipstername[7], self)
+        self.tipstermargCheckBox8.setChecked(False)
+        self.tipstermargCheckBox8.stateChanged.connect(self.tipsterSelectedmargin)
         
-        self.alistCheckBox9 = QCheckBox(tipstername[8], self)
-        self.alistCheckBox9.setChecked(False)
-        self.alistCheckBox9.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox9 = QCheckBox(tipstername[8], self)
+        self.tipstermargCheckBox9.setChecked(False)
+        self.tipstermargCheckBox9.stateChanged.connect(self.tipsterSelectedmargin)
         
-        self.alistCheckBox10 = QCheckBox(tipstername[9], self)
-        self.alistCheckBox10.setChecked(False)
-        self.alistCheckBox10.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox10 = QCheckBox(tipstername[9], self)
+        self.tipstermargCheckBox10.setChecked(False)
+        self.tipstermargCheckBox10.stateChanged.connect(self.tipsterSelectedmargin)
         
-        self.alistCheckBox11 = QCheckBox(tipstername[10], self)
-        self.alistCheckBox11.setChecked(False)
-        self.alistCheckBox11.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox11 = QCheckBox(tipstername[10], self)
+        self.tipstermargCheckBox11.setChecked(False)
+        self.tipstermargCheckBox11.stateChanged.connect(self.tipsterSelectedmargin)
 
-        self.alistCheckBox12 = QCheckBox(tipstername[11], self)
-        self.alistCheckBox12.setChecked(False)
-        self.alistCheckBox12.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox12 = QCheckBox(tipstername[11], self)
+        self.tipstermargCheckBox12.setChecked(False)
+        self.tipstermargCheckBox12.stateChanged.connect(self.tipsterSelectedmargin)
         
-        self.alistCheckBox13 = QCheckBox(tipstername[12], self)
-        self.alistCheckBox13.setChecked(False)
-        self.alistCheckBox13.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox13 = QCheckBox(tipstername[12], self)
+        self.tipstermargCheckBox13.setChecked(False)
+        self.tipstermargCheckBox13.stateChanged.connect(self.tipsterSelectedmargin)
         
-        self.alistCheckBox14 = QCheckBox(tipstername[13], self)
-        self.alistCheckBox14.setChecked(False)
-        self.alistCheckBox14.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox14 = QCheckBox(tipstername[13], self)
+        self.tipstermargCheckBox14.setChecked(False)
+        self.tipstermargCheckBox14.stateChanged.connect(self.tipsterSelectedmargin)
         
-        self.alistCheckBox15 = QCheckBox(tipstername[14], self)
-        self.alistCheckBox15.setChecked(False)
-        self.alistCheckBox15.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox15 = QCheckBox(tipstername[14], self)
+        self.tipstermargCheckBox15.setChecked(False)
+        self.tipstermargCheckBox15.stateChanged.connect(self.tipsterSelectedmargin)
         
-        self.alistCheckBox16 = QCheckBox(tipstername[15], self)
-        self.alistCheckBox16.setChecked(False)
-        self.alistCheckBox16.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox16 = QCheckBox(tipstername[15], self)
+        self.tipstermargCheckBox16.setChecked(False)
+        self.tipstermargCheckBox16.stateChanged.connect(self.tipsterSelectedmargin)
         
-        self.alistCheckBox17 = QCheckBox(tipstername[16], self)
-        self.alistCheckBox17.setChecked(False)
-        self.alistCheckBox17.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox17 = QCheckBox(tipstername[16], self)
+        self.tipstermargCheckBox17.setChecked(False)
+        self.tipstermargCheckBox17.stateChanged.connect(self.tipsterSelectedmargin)
         
-        self.alistCheckBox18 = QCheckBox(tipstername[17], self)
-        self.alistCheckBox18.setChecked(False)
-        self.alistCheckBox18.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox18 = QCheckBox(tipstername[17], self)
+        self.tipstermargCheckBox18.setChecked(False)
+        self.tipstermargCheckBox18.stateChanged.connect(self.tipsterSelectedmargin)
         
-        self.alistCheckBox19 = QCheckBox(tipstername[18], self)
-        self.alistCheckBox19.setChecked(False)
-        self.alistCheckBox19.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox19 = QCheckBox(tipstername[18], self)
+        self.tipstermargCheckBox19.setChecked(False)
+        self.tipstermargCheckBox19.stateChanged.connect(self.tipsterSelectedmargin)
         
-        self.alistCheckBox20 = QCheckBox(tipstername[19], self)
-        self.alistCheckBox20.setChecked(False)
-        self.alistCheckBox20.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox20 = QCheckBox(tipstername[19], self)
+        self.tipstermargCheckBox20.setChecked(False)
+        self.tipstermargCheckBox20.stateChanged.connect(self.tipsterSelectedmargin)
         
-        self.alistCheckBox21 = QCheckBox(tipstername[20], self)
-        self.alistCheckBox21.setChecked(False)
-        self.alistCheckBox21.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox21 = QCheckBox(tipstername[20], self)
+        self.tipstermargCheckBox21.setChecked(False)
+        self.tipstermargCheckBox21.stateChanged.connect(self.tipsterSelectedmargin)
         
-        self.alistCheckBox22 = QCheckBox(tipstername[21], self)
-        self.alistCheckBox22.setChecked(False)
-        self.alistCheckBox22.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox22 = QCheckBox(tipstername[21], self)
+        self.tipstermargCheckBox22.setChecked(False)
+        self.tipstermargCheckBox22.stateChanged.connect(self.tipsterSelectedmargin)
         
-        self.alistCheckBox23 = QCheckBox(tipstername[22], self)
-        self.alistCheckBox23.setChecked(False)
-        self.alistCheckBox23.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox23 = QCheckBox(tipstername[22], self)
+        self.tipstermargCheckBox23.setChecked(False)
+        self.tipstermargCheckBox23.stateChanged.connect(self.tipsterSelectedmargin)
         
-        self.alistCheckBox24 = QCheckBox(tipstername[23], self)
-        self.alistCheckBox24.setChecked(False)
-        self.alistCheckBox24.stateChanged.connect(self.tipsterSelectedmargin)
+        self.tipstermargCheckBox24 = QCheckBox(tipstername[23], self)
+        self.tipstermargCheckBox24.setChecked(False)
+        self.tipstermargCheckBox24.stateChanged.connect(self.tipsterSelectedmargin)
     
         self.launchposbyrank = QPushButton('Go!', self)
         self.launchposbyrank.move(5, 180)
@@ -787,30 +787,30 @@ class MyTableWidget(QWidget):
         
         self.tab2.layout = QGridLayout(self)
         self.tab2.layout.addWidget(self.label, 0, 0, Qt.AlignmentFlag.AlignCenter)
-        self.tab2.layout.addWidget(self.listCheckBox1, 1, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox2, 2, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox3, 3, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox4, 4, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox5, 5, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox6, 6, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox7, 7, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox8, 8, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox9, 9, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox10, 10, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox11, 11, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox12, 12, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox13, 1, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox14, 2, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox15, 3, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox16, 4, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox17, 5, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox18, 6, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox19, 7, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox20, 8, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox21, 9, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox22, 10, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox23, 11, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab2.layout.addWidget(self.listCheckBox24, 12, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox1, 1, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox2, 2, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox3, 3, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox4, 4, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox5, 5, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox6, 6, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox7, 7, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox8, 8, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox9, 9, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox10, 10, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox11, 11, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox12, 12, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox13, 1, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox14, 2, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox15, 3, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox16, 4, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox17, 5, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox18, 6, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox19, 7, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox20, 8, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox21, 9, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox22, 10, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox23, 11, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab2.layout.addWidget(self.tipsterposCheckBox24, 12, 1, Qt.AlignmentFlag.AlignLeft)
         self.tab2.layout.addWidget(self.launchposbyrank, 13, 0, Qt.AlignmentFlag.AlignLeft)
         self.tab2.setLayout(self.tab2.layout)
         
@@ -818,30 +818,30 @@ class MyTableWidget(QWidget):
         
         self.tab3.layout = QGridLayout(self)
         self.tab3.layout.addWidget(self.label2, 0, 0, Qt.AlignmentFlag.AlignCenter)
-        self.tab3.layout.addWidget(self.alistCheckBox1, 1, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox2, 2, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox3, 3, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox4, 4, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox5, 5, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox6, 6, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox7, 7, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox8, 8, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox9, 9, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox10, 10, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox11, 11, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox12, 12, 0, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox13, 1, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox14, 2, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox15, 3, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox16, 4, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox17, 5, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox18, 6, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox19, 7, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox20, 8, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox21, 9, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox22, 10, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox23, 11, 1, Qt.AlignmentFlag.AlignLeft)
-        self.tab3.layout.addWidget(self.alistCheckBox24, 12, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox1, 1, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox2, 2, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox3, 3, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox4, 4, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox5, 5, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox6, 6, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox7, 7, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox8, 8, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox9, 9, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox10, 10, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox11, 11, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox12, 12, 0, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox13, 1, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox14, 2, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox15, 3, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox16, 4, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox17, 5, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox18, 6, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox19, 7, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox20, 8, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox21, 9, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox22, 10, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox23, 11, 1, Qt.AlignmentFlag.AlignLeft)
+        self.tab3.layout.addWidget(self.tipstermargCheckBox24, 12, 1, Qt.AlignmentFlag.AlignLeft)
         self.tab3.layout.addWidget(self.launchposbymarg, 13, 0, Qt.AlignmentFlag.AlignLeft)
         self.tab3.setLayout(self.tab3.layout)
         
@@ -860,107 +860,107 @@ class MyTableWidget(QWidget):
         
     def tipsterSelected(self):
         self.chosentipsters = []
-        if (self.listCheckBox1.isChecked()):
-            self.chosentipsters.append(self.listCheckBox1.text())
-        if (self.listCheckBox2.isChecked()):
-            self.chosentipsters.append(self.listCheckBox2.text())
-        if (self.listCheckBox3.isChecked()):
-            self.chosentipsters.append(self.listCheckBox3.text())
-        if (self.listCheckBox4.isChecked()):
-            self.chosentipsters.append(self.listCheckBox4.text())
-        if (self.listCheckBox5.isChecked()):
-            self.chosentipsters.append(self.listCheckBox5.text())
-        if (self.listCheckBox6.isChecked()):
-            self.chosentipsters.append(self.listCheckBox6.text())
-        if (self.listCheckBox7.isChecked()):
-            self.chosentipsters.append(self.listCheckBox7.text())
-        if (self.listCheckBox8.isChecked()):
-            self.chosentipsters.append(self.listCheckBox8.text())
-        if (self.listCheckBox9.isChecked()):
-            self.chosentipsters.append(self.listCheckBox9.text())
-        if (self.listCheckBox10.isChecked()):
-            self.chosentipsters.append(self.listCheckBox10.text())
-        if (self.listCheckBox11.isChecked()):
-            self.chosentipsters.append(self.listCheckBox11.text())
-        if (self.listCheckBox12.isChecked()):
-            self.chosentipsters.append(self.listCheckBox12.text())
-        if (self.listCheckBox13.isChecked()):
-            self.chosentipsters.append(self.listCheckBox13.text())
-        if (self.listCheckBox14.isChecked()):
-            self.chosentipsters.append(self.listCheckBox14.text())
-        if (self.listCheckBox15.isChecked()):
-            self.chosentipsters.append(self.listCheckBox15.text())
-        if (self.listCheckBox16.isChecked()):
-            self.chosentipsters.append(self.listCheckBox16.text())
-        if (self.listCheckBox17.isChecked()):
-            self.chosentipsters.append(self.listCheckBox17.text())
-        if (self.listCheckBox18.isChecked()):
-            self.chosentipsters.append(self.listCheckBox18.text())
-        if (self.listCheckBox19.isChecked()):
-            self.chosentipsters.append(self.listCheckBox19.text())
-        if (self.listCheckBox20.isChecked()):
-            self.chosentipsters.append(self.listCheckBox20.text())
-        if (self.listCheckBox21.isChecked()):
-            self.chosentipsters.append(self.listCheckBox21.text())
-        if (self.listCheckBox22.isChecked()):
-            self.chosentipsters.append(self.listCheckBox22.text())
-        if (self.listCheckBox23.isChecked()):
-            self.chosentipsters.append(self.listCheckBox23.text())
-        if (self.listCheckBox24.isChecked()):
-            self.chosentipsters.append(self.listCheckBox24.text())
+        if (self.tipsterposCheckBox1.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox1.text())
+        if (self.tipsterposCheckBox2.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox2.text())
+        if (self.tipsterposCheckBox3.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox3.text())
+        if (self.tipsterposCheckBox4.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox4.text())
+        if (self.tipsterposCheckBox5.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox5.text())
+        if (self.tipsterposCheckBox6.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox6.text())
+        if (self.tipsterposCheckBox7.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox7.text())
+        if (self.tipsterposCheckBox8.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox8.text())
+        if (self.tipsterposCheckBox9.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox9.text())
+        if (self.tipsterposCheckBox10.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox10.text())
+        if (self.tipsterposCheckBox11.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox11.text())
+        if (self.tipsterposCheckBox12.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox12.text())
+        if (self.tipsterposCheckBox13.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox13.text())
+        if (self.tipsterposCheckBox14.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox14.text())
+        if (self.tipsterposCheckBox15.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox15.text())
+        if (self.tipsterposCheckBox16.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox16.text())
+        if (self.tipsterposCheckBox17.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox17.text())
+        if (self.tipsterposCheckBox18.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox18.text())
+        if (self.tipsterposCheckBox19.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox19.text())
+        if (self.tipsterposCheckBox20.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox20.text())
+        if (self.tipsterposCheckBox21.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox21.text())
+        if (self.tipsterposCheckBox22.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox22.text())
+        if (self.tipsterposCheckBox23.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox23.text())
+        if (self.tipsterposCheckBox24.isChecked()):
+            self.chosentipsters.append(self.tipsterposCheckBox24.text())
                 
         return(self.chosentipsters)
             
     def tipsterSelectedmargin(self):
         self.chosentipsters = []
-        if (self.alistCheckBox1.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox1.text())
-        if (self.alistCheckBox2.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox2.text())
-        if (self.alistCheckBox3.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox3.text())
-        if (self.alistCheckBox4.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox4.text())
-        if (self.alistCheckBox5.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox5.text())
-        if (self.alistCheckBox6.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox6.text())
-        if (self.alistCheckBox7.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox7.text())
-        if (self.alistCheckBox8.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox8.text())
-        if (self.alistCheckBox9.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox9.text())
-        if (self.alistCheckBox10.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox10.text())
-        if (self.alistCheckBox11.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox11.text())
-        if (self.alistCheckBox12.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox12.text())
-        if (self.alistCheckBox13.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox13.text())
-        if (self.alistCheckBox14.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox14.text())
-        if (self.alistCheckBox15.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox15.text())
-        if (self.alistCheckBox16.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox16.text())
-        if (self.alistCheckBox17.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox17.text())
-        if (self.alistCheckBox18.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox18.text())
-        if (self.alistCheckBox19.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox19.text())
-        if (self.alistCheckBox20.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox20.text())
-        if (self.alistCheckBox21.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox21.text())
-        if (self.alistCheckBox22.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox22.text())
-        if (self.alistCheckBox23.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox23.text())
-        if (self.alistCheckBox24.isChecked()):
-            self.chosentipsters.append(self.alistCheckBox24.text())
+        if (self.tipstermargCheckBox1.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox1.text())
+        if (self.tipstermargCheckBox2.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox2.text())
+        if (self.tipstermargCheckBox3.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox3.text())
+        if (self.tipstermargCheckBox4.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox4.text())
+        if (self.tipstermargCheckBox5.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox5.text())
+        if (self.tipstermargCheckBox6.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox6.text())
+        if (self.tipstermargCheckBox7.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox7.text())
+        if (self.tipstermargCheckBox8.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox8.text())
+        if (self.tipstermargCheckBox9.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox9.text())
+        if (self.tipstermargCheckBox10.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox10.text())
+        if (self.tipstermargCheckBox11.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox11.text())
+        if (self.tipstermargCheckBox12.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox12.text())
+        if (self.tipstermargCheckBox13.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox13.text())
+        if (self.tipstermargCheckBox14.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox14.text())
+        if (self.tipstermargCheckBox15.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox15.text())
+        if (self.tipstermargCheckBox16.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox16.text())
+        if (self.tipstermargCheckBox17.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox17.text())
+        if (self.tipstermargCheckBox18.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox18.text())
+        if (self.tipstermargCheckBox19.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox19.text())
+        if (self.tipstermargCheckBox20.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox20.text())
+        if (self.tipstermargCheckBox21.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox21.text())
+        if (self.tipstermargCheckBox22.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox22.text())
+        if (self.tipstermargCheckBox23.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox23.text())
+        if (self.tipstermargCheckBox24.isChecked()):
+            self.chosentipsters.append(self.tipstermargCheckBox24.text())
                 
         return(self.chosentipsters)
 
@@ -1016,55 +1016,55 @@ class MyTableWidget(QWidget):
             self.tipsterwhatif_realname.setVisible(True)
             self.tipsterwhatif.setVisible(False)
             
-            self.listCheckBox1.setText(dict_user_names[self.listCheckBox1.text()])
-            self.listCheckBox2.setText(dict_user_names[self.listCheckBox2.text()])
-            self.listCheckBox3.setText(dict_user_names[self.listCheckBox3.text()])
-            self.listCheckBox4.setText(dict_user_names[self.listCheckBox4.text()])
-            self.listCheckBox5.setText(dict_user_names[self.listCheckBox5.text()])
-            self.listCheckBox6.setText(dict_user_names[self.listCheckBox6.text()])
-            self.listCheckBox7.setText(dict_user_names[self.listCheckBox7.text()])
-            self.listCheckBox8.setText(dict_user_names[self.listCheckBox8.text()])
-            self.listCheckBox9.setText(dict_user_names[self.listCheckBox9.text()])
-            self.listCheckBox10.setText(dict_user_names[self.listCheckBox10.text()])
-            self.listCheckBox11.setText(dict_user_names[self.listCheckBox11.text()])
-            self.listCheckBox12.setText(dict_user_names[self.listCheckBox12.text()])
-            self.listCheckBox13.setText(dict_user_names[self.listCheckBox13.text()])
-            self.listCheckBox14.setText(dict_user_names[self.listCheckBox14.text()])
-            self.listCheckBox15.setText(dict_user_names[self.listCheckBox15.text()])
-            self.listCheckBox16.setText(dict_user_names[self.listCheckBox16.text()])
-            self.listCheckBox17.setText(dict_user_names[self.listCheckBox17.text()])
-            self.listCheckBox18.setText(dict_user_names[self.listCheckBox18.text()])
-            self.listCheckBox19.setText(dict_user_names[self.listCheckBox19.text()])
-            self.listCheckBox20.setText(dict_user_names[self.listCheckBox20.text()])
-            self.listCheckBox21.setText(dict_user_names[self.listCheckBox21.text()])
-            self.listCheckBox22.setText(dict_user_names[self.listCheckBox22.text()])
-            self.listCheckBox23.setText(dict_user_names[self.listCheckBox23.text()])
-            self.listCheckBox24.setText(dict_user_names[self.listCheckBox24.text()])
+            self.tipsterposCheckBox1.setText(dict_user_names[self.tipsterposCheckBox1.text()])
+            self.tipsterposCheckBox2.setText(dict_user_names[self.tipsterposCheckBox2.text()])
+            self.tipsterposCheckBox3.setText(dict_user_names[self.tipsterposCheckBox3.text()])
+            self.tipsterposCheckBox4.setText(dict_user_names[self.tipsterposCheckBox4.text()])
+            self.tipsterposCheckBox5.setText(dict_user_names[self.tipsterposCheckBox5.text()])
+            self.tipsterposCheckBox6.setText(dict_user_names[self.tipsterposCheckBox6.text()])
+            self.tipsterposCheckBox7.setText(dict_user_names[self.tipsterposCheckBox7.text()])
+            self.tipsterposCheckBox8.setText(dict_user_names[self.tipsterposCheckBox8.text()])
+            self.tipsterposCheckBox9.setText(dict_user_names[self.tipsterposCheckBox9.text()])
+            self.tipsterposCheckBox10.setText(dict_user_names[self.tipsterposCheckBox10.text()])
+            self.tipsterposCheckBox11.setText(dict_user_names[self.tipsterposCheckBox11.text()])
+            self.tipsterposCheckBox12.setText(dict_user_names[self.tipsterposCheckBox12.text()])
+            self.tipsterposCheckBox13.setText(dict_user_names[self.tipsterposCheckBox13.text()])
+            self.tipsterposCheckBox14.setText(dict_user_names[self.tipsterposCheckBox14.text()])
+            self.tipsterposCheckBox15.setText(dict_user_names[self.tipsterposCheckBox15.text()])
+            self.tipsterposCheckBox16.setText(dict_user_names[self.tipsterposCheckBox16.text()])
+            self.tipsterposCheckBox17.setText(dict_user_names[self.tipsterposCheckBox17.text()])
+            self.tipsterposCheckBox18.setText(dict_user_names[self.tipsterposCheckBox18.text()])
+            self.tipsterposCheckBox19.setText(dict_user_names[self.tipsterposCheckBox19.text()])
+            self.tipsterposCheckBox20.setText(dict_user_names[self.tipsterposCheckBox20.text()])
+            self.tipsterposCheckBox21.setText(dict_user_names[self.tipsterposCheckBox21.text()])
+            self.tipsterposCheckBox22.setText(dict_user_names[self.tipsterposCheckBox22.text()])
+            self.tipsterposCheckBox23.setText(dict_user_names[self.tipsterposCheckBox23.text()])
+            self.tipsterposCheckBox24.setText(dict_user_names[self.tipsterposCheckBox24.text()])
             
-            self.alistCheckBox1.setText(dict_user_names[self.alistCheckBox1.text()])
-            self.alistCheckBox2.setText(dict_user_names[self.alistCheckBox2.text()])
-            self.alistCheckBox3.setText(dict_user_names[self.alistCheckBox3.text()])
-            self.alistCheckBox4.setText(dict_user_names[self.alistCheckBox4.text()])
-            self.alistCheckBox5.setText(dict_user_names[self.alistCheckBox5.text()])
-            self.alistCheckBox6.setText(dict_user_names[self.alistCheckBox6.text()])
-            self.alistCheckBox7.setText(dict_user_names[self.alistCheckBox7.text()])
-            self.alistCheckBox8.setText(dict_user_names[self.alistCheckBox8.text()])
-            self.alistCheckBox9.setText(dict_user_names[self.alistCheckBox9.text()])
-            self.alistCheckBox10.setText(dict_user_names[self.alistCheckBox10.text()])
-            self.alistCheckBox11.setText(dict_user_names[self.alistCheckBox11.text()])
-            self.alistCheckBox12.setText(dict_user_names[self.alistCheckBox12.text()])
-            self.alistCheckBox13.setText(dict_user_names[self.alistCheckBox13.text()])
-            self.alistCheckBox14.setText(dict_user_names[self.alistCheckBox14.text()])
-            self.alistCheckBox15.setText(dict_user_names[self.alistCheckBox15.text()])
-            self.alistCheckBox16.setText(dict_user_names[self.alistCheckBox16.text()])
-            self.alistCheckBox17.setText(dict_user_names[self.alistCheckBox17.text()])
-            self.alistCheckBox18.setText(dict_user_names[self.alistCheckBox18.text()])
-            self.alistCheckBox19.setText(dict_user_names[self.alistCheckBox19.text()])
-            self.alistCheckBox20.setText(dict_user_names[self.alistCheckBox20.text()])
-            self.alistCheckBox21.setText(dict_user_names[self.alistCheckBox21.text()])
-            self.alistCheckBox22.setText(dict_user_names[self.alistCheckBox22.text()])
-            self.alistCheckBox23.setText(dict_user_names[self.alistCheckBox23.text()])
-            self.alistCheckBox24.setText(dict_user_names[self.alistCheckBox24.text()])
+            self.tipstermargCheckBox1.setText(dict_user_names[self.tipstermargCheckBox1.text()])
+            self.tipstermargCheckBox2.setText(dict_user_names[self.tipstermargCheckBox2.text()])
+            self.tipstermargCheckBox3.setText(dict_user_names[self.tipstermargCheckBox3.text()])
+            self.tipstermargCheckBox4.setText(dict_user_names[self.tipstermargCheckBox4.text()])
+            self.tipstermargCheckBox5.setText(dict_user_names[self.tipstermargCheckBox5.text()])
+            self.tipstermargCheckBox6.setText(dict_user_names[self.tipstermargCheckBox6.text()])
+            self.tipstermargCheckBox7.setText(dict_user_names[self.tipstermargCheckBox7.text()])
+            self.tipstermargCheckBox8.setText(dict_user_names[self.tipstermargCheckBox8.text()])
+            self.tipstermargCheckBox9.setText(dict_user_names[self.tipstermargCheckBox9.text()])
+            self.tipstermargCheckBox10.setText(dict_user_names[self.tipstermargCheckBox10.text()])
+            self.tipstermargCheckBox11.setText(dict_user_names[self.tipstermargCheckBox11.text()])
+            self.tipstermargCheckBox12.setText(dict_user_names[self.tipstermargCheckBox12.text()])
+            self.tipstermargCheckBox13.setText(dict_user_names[self.tipstermargCheckBox13.text()])
+            self.tipstermargCheckBox14.setText(dict_user_names[self.tipstermargCheckBox14.text()])
+            self.tipstermargCheckBox15.setText(dict_user_names[self.tipstermargCheckBox15.text()])
+            self.tipstermargCheckBox16.setText(dict_user_names[self.tipstermargCheckBox16.text()])
+            self.tipstermargCheckBox17.setText(dict_user_names[self.tipstermargCheckBox17.text()])
+            self.tipstermargCheckBox18.setText(dict_user_names[self.tipstermargCheckBox18.text()])
+            self.tipstermargCheckBox19.setText(dict_user_names[self.tipstermargCheckBox19.text()])
+            self.tipstermargCheckBox20.setText(dict_user_names[self.tipstermargCheckBox20.text()])
+            self.tipstermargCheckBox21.setText(dict_user_names[self.tipstermargCheckBox21.text()])
+            self.tipstermargCheckBox22.setText(dict_user_names[self.tipstermargCheckBox22.text()])
+            self.tipstermargCheckBox23.setText(dict_user_names[self.tipstermargCheckBox23.text()])
+            self.tipstermargCheckBox24.setText(dict_user_names[self.tipstermargCheckBox24.text()])
             
         else:
             self.tipstercombobox_realname.setVisible(False)
@@ -1073,55 +1073,55 @@ class MyTableWidget(QWidget):
             self.tipsterwhatif_realname.setVisible(False)
             self.tipsterwhatif.setVisible(True)
 
-            self.listCheckBox1.setText(dict_names_user[self.listCheckBox1.text()])
-            self.listCheckBox2.setText(dict_names_user[self.listCheckBox2.text()])
-            self.listCheckBox3.setText(dict_names_user[self.listCheckBox3.text()])
-            self.listCheckBox4.setText(dict_names_user[self.listCheckBox4.text()])
-            self.listCheckBox5.setText(dict_names_user[self.listCheckBox5.text()])
-            self.listCheckBox6.setText(dict_names_user[self.listCheckBox6.text()])
-            self.listCheckBox7.setText(dict_names_user[self.listCheckBox7.text()])
-            self.listCheckBox8.setText(dict_names_user[self.listCheckBox8.text()])
-            self.listCheckBox9.setText(dict_names_user[self.listCheckBox9.text()])
-            self.listCheckBox10.setText(dict_names_user[self.listCheckBox10.text()])
-            self.listCheckBox11.setText(dict_names_user[self.listCheckBox11.text()])
-            self.listCheckBox12.setText(dict_names_user[self.listCheckBox12.text()])
-            self.listCheckBox13.setText(dict_names_user[self.listCheckBox13.text()])
-            self.listCheckBox14.setText(dict_names_user[self.listCheckBox14.text()])
-            self.listCheckBox15.setText(dict_names_user[self.listCheckBox15.text()])
-            self.listCheckBox16.setText(dict_names_user[self.listCheckBox16.text()])
-            self.listCheckBox17.setText(dict_names_user[self.listCheckBox17.text()])
-            self.listCheckBox18.setText(dict_names_user[self.listCheckBox18.text()])
-            self.listCheckBox19.setText(dict_names_user[self.listCheckBox19.text()])
-            self.listCheckBox20.setText(dict_names_user[self.listCheckBox20.text()])
-            self.listCheckBox21.setText(dict_names_user[self.listCheckBox21.text()])
-            self.listCheckBox22.setText(dict_names_user[self.listCheckBox22.text()])
-            self.listCheckBox23.setText(dict_names_user[self.listCheckBox23.text()])
-            self.listCheckBox24.setText(dict_names_user[self.listCheckBox24.text()])
+            self.tipsterposCheckBox1.setText(dict_names_user[self.tipsterposCheckBox1.text()])
+            self.tipsterposCheckBox2.setText(dict_names_user[self.tipsterposCheckBox2.text()])
+            self.tipsterposCheckBox3.setText(dict_names_user[self.tipsterposCheckBox3.text()])
+            self.tipsterposCheckBox4.setText(dict_names_user[self.tipsterposCheckBox4.text()])
+            self.tipsterposCheckBox5.setText(dict_names_user[self.tipsterposCheckBox5.text()])
+            self.tipsterposCheckBox6.setText(dict_names_user[self.tipsterposCheckBox6.text()])
+            self.tipsterposCheckBox7.setText(dict_names_user[self.tipsterposCheckBox7.text()])
+            self.tipsterposCheckBox8.setText(dict_names_user[self.tipsterposCheckBox8.text()])
+            self.tipsterposCheckBox9.setText(dict_names_user[self.tipsterposCheckBox9.text()])
+            self.tipsterposCheckBox10.setText(dict_names_user[self.tipsterposCheckBox10.text()])
+            self.tipsterposCheckBox11.setText(dict_names_user[self.tipsterposCheckBox11.text()])
+            self.tipsterposCheckBox12.setText(dict_names_user[self.tipsterposCheckBox12.text()])
+            self.tipsterposCheckBox13.setText(dict_names_user[self.tipsterposCheckBox13.text()])
+            self.tipsterposCheckBox14.setText(dict_names_user[self.tipsterposCheckBox14.text()])
+            self.tipsterposCheckBox15.setText(dict_names_user[self.tipsterposCheckBox15.text()])
+            self.tipsterposCheckBox16.setText(dict_names_user[self.tipsterposCheckBox16.text()])
+            self.tipsterposCheckBox17.setText(dict_names_user[self.tipsterposCheckBox17.text()])
+            self.tipsterposCheckBox18.setText(dict_names_user[self.tipsterposCheckBox18.text()])
+            self.tipsterposCheckBox19.setText(dict_names_user[self.tipsterposCheckBox19.text()])
+            self.tipsterposCheckBox20.setText(dict_names_user[self.tipsterposCheckBox20.text()])
+            self.tipsterposCheckBox21.setText(dict_names_user[self.tipsterposCheckBox21.text()])
+            self.tipsterposCheckBox22.setText(dict_names_user[self.tipsterposCheckBox22.text()])
+            self.tipsterposCheckBox23.setText(dict_names_user[self.tipsterposCheckBox23.text()])
+            self.tipsterposCheckBox24.setText(dict_names_user[self.tipsterposCheckBox24.text()])
             
-            self.alistCheckBox1.setText(dict_names_user[self.alistCheckBox1.text()])
-            self.alistCheckBox2.setText(dict_names_user[self.alistCheckBox2.text()])
-            self.alistCheckBox3.setText(dict_names_user[self.alistCheckBox3.text()])
-            self.alistCheckBox4.setText(dict_names_user[self.alistCheckBox4.text()])
-            self.alistCheckBox5.setText(dict_names_user[self.alistCheckBox5.text()])
-            self.alistCheckBox6.setText(dict_names_user[self.alistCheckBox6.text()])
-            self.alistCheckBox7.setText(dict_names_user[self.alistCheckBox7.text()])
-            self.alistCheckBox8.setText(dict_names_user[self.alistCheckBox8.text()])
-            self.alistCheckBox9.setText(dict_names_user[self.alistCheckBox9.text()])
-            self.alistCheckBox10.setText(dict_names_user[self.alistCheckBox10.text()])
-            self.alistCheckBox11.setText(dict_names_user[self.alistCheckBox11.text()])
-            self.alistCheckBox12.setText(dict_names_user[self.alistCheckBox12.text()])
-            self.alistCheckBox13.setText(dict_names_user[self.alistCheckBox13.text()])
-            self.alistCheckBox14.setText(dict_names_user[self.alistCheckBox14.text()])
-            self.alistCheckBox15.setText(dict_names_user[self.alistCheckBox15.text()])
-            self.alistCheckBox16.setText(dict_names_user[self.alistCheckBox16.text()])
-            self.alistCheckBox17.setText(dict_names_user[self.alistCheckBox17.text()])
-            self.alistCheckBox18.setText(dict_names_user[self.alistCheckBox18.text()])
-            self.alistCheckBox19.setText(dict_names_user[self.alistCheckBox19.text()])
-            self.alistCheckBox20.setText(dict_names_user[self.alistCheckBox20.text()])
-            self.alistCheckBox21.setText(dict_names_user[self.alistCheckBox21.text()])
-            self.alistCheckBox22.setText(dict_names_user[self.alistCheckBox22.text()])
-            self.alistCheckBox23.setText(dict_names_user[self.alistCheckBox23.text()])
-            self.alistCheckBox24.setText(dict_names_user[self.alistCheckBox24.text()])
+            self.tipstermargCheckBox1.setText(dict_names_user[self.tipstermargCheckBox1.text()])
+            self.tipstermargCheckBox2.setText(dict_names_user[self.tipstermargCheckBox2.text()])
+            self.tipstermargCheckBox3.setText(dict_names_user[self.tipstermargCheckBox3.text()])
+            self.tipstermargCheckBox4.setText(dict_names_user[self.tipstermargCheckBox4.text()])
+            self.tipstermargCheckBox5.setText(dict_names_user[self.tipstermargCheckBox5.text()])
+            self.tipstermargCheckBox6.setText(dict_names_user[self.tipstermargCheckBox6.text()])
+            self.tipstermargCheckBox7.setText(dict_names_user[self.tipstermargCheckBox7.text()])
+            self.tipstermargCheckBox8.setText(dict_names_user[self.tipstermargCheckBox8.text()])
+            self.tipstermargCheckBox9.setText(dict_names_user[self.tipstermargCheckBox9.text()])
+            self.tipstermargCheckBox10.setText(dict_names_user[self.tipstermargCheckBox10.text()])
+            self.tipstermargCheckBox11.setText(dict_names_user[self.tipstermargCheckBox11.text()])
+            self.tipstermargCheckBox12.setText(dict_names_user[self.tipstermargCheckBox12.text()])
+            self.tipstermargCheckBox13.setText(dict_names_user[self.tipstermargCheckBox13.text()])
+            self.tipstermargCheckBox14.setText(dict_names_user[self.tipstermargCheckBox14.text()])
+            self.tipstermargCheckBox15.setText(dict_names_user[self.tipstermargCheckBox15.text()])
+            self.tipstermargCheckBox16.setText(dict_names_user[self.tipstermargCheckBox16.text()])
+            self.tipstermargCheckBox17.setText(dict_names_user[self.tipstermargCheckBox17.text()])
+            self.tipstermargCheckBox18.setText(dict_names_user[self.tipstermargCheckBox18.text()])
+            self.tipstermargCheckBox19.setText(dict_names_user[self.tipstermargCheckBox19.text()])
+            self.tipstermargCheckBox20.setText(dict_names_user[self.tipstermargCheckBox20.text()])
+            self.tipstermargCheckBox21.setText(dict_names_user[self.tipstermargCheckBox21.text()])
+            self.tipstermargCheckBox22.setText(dict_names_user[self.tipstermargCheckBox22.text()])
+            self.tipstermargCheckBox23.setText(dict_names_user[self.tipstermargCheckBox23.text()])
+            self.tipstermargCheckBox24.setText(dict_names_user[self.tipstermargCheckBox24.text()])
 
 
         return()
