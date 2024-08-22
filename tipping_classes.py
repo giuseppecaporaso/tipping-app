@@ -415,7 +415,7 @@ class MainWindow(QMainWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.w = None
-        self.setWindowTitle('Tipping App')
+        self.setWindowTitle('2024 Aurizn Tipping Analysis GUI')
         self.setGeometry(100, 100, 400, 400)
         
         self.table_widget = MyTableWidget(self)
