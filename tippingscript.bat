@@ -28,5 +28,5 @@ goto:eof
 
 :errorNoPython
 echo.
-echo Error^: Python not installed
+echo Error^: Python not installed or found.
 
